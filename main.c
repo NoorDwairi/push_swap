@@ -1,6 +1,21 @@
-#include"push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/21 09:35:45 by dlababne          #+#    #+#             */
+/*   Updated: 2026/10/21 09:35:48 by dlababne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
 #include <stdio.h>
-int main(int argc,char **argc)
+
+int	main(int argc, char **argc)
 {
-	t_stack a ={NULL,0};
+	t_stack	a;
+
+	a = {NULL, 0};
 }
