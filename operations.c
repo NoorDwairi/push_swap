@@ -6,19 +6,17 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 10:54:55 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/20 16:58:22 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/10/21 09:19:01 by ndwairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-void swap(t_stack *stack)
+void swap(t_stack *test)
 {
 	t_node *temp;
-	if(stack->size < 2)
-		return ;
-	temp =stack-> top->next;
-	stack->top->next =  temp ->next;
-	temp->next = stack->top;
-	stack ->top =temp;
+	temp =test-> top->next;
+	test->top->next =  temp ->next;
+	temp->next = test->top;
+	test ->top =temp;
 }
 int sa(t_stack *stack_a)
 {
@@ -49,14 +47,21 @@ int ss(t_stack *stack_a,t_stack *stack_b)
 
 void push(t_stack *dest ,t_stack *src)
 {
-	t_node temp;
-	if(src->size == 0)
-		return ;
+	t_node *temp;
 	temp = src-> top;
 	src->top = src->top->next;
+	temp->next=dest->top;
 	dest -> top = temp;
-
-
-
-
+	src->size--;
+	dest->size++;
+}
+int pa(t_stack *b,t_stack *a)
+{
+	if(b->size == 0)
+		return -1;
+	push(b,a);
+	 write(1,"pa\n",3);
+        return (0); // at the beginning cuz we will declare a counter maybe ;)
+}
+	
 ~
