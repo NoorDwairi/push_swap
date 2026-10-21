@@ -21,8 +21,11 @@ int ra(t_stack *a)
 
 int rb(t_stack *b)
 {
-    if(!a || b->size < 2)
+    if(!b || b->size < 2)
         return(-1);
+    rotate(b);
+    write(1, "rb\n", 3);
+    return(0);
 }
 int rr(t_stack *a , t_stack *b)
 {
@@ -39,7 +42,7 @@ void    rotate(t_stack *test)
 {
     t_node *temp;
     t_node *current;
-    if (!test)
+    if (!test || test->size < 2 || !test->top || !test->top->next)
         return ;
     current = test->top;
     temp = test->top;
@@ -51,6 +54,28 @@ void    rotate(t_stack *test)
     test->top->next = NULL;
     test->top = temp->next;
 }
+
+int     reverse_rotate(t_stack *test)
+{
+    t_node *temp;
+    t_node *current;
+    if (!test || test->size < 2 || !test->top || !test->top->next)
+        return (-1);
+    current = test->top;
+    temp = test->top;
+    while(current)
+    {
+        if(current->next == NULL)
+        {
+            current->next = test->top;
+            test->top = current;
+            \\ make the one before the last points to NULL
+        }
+        current = current->next;  
+    }
+    return(0);
+}
+
 int rra(t_stack *a)
 {
 
@@ -63,5 +88,5 @@ int rrb(t_stack *b)
 
 int rrr(t_stack *a , t_stack *b)
 {
-
+    
 }
