@@ -6,7 +6,7 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 09:35:45 by dlababne          #+#    #+#             */
-/*   Updated: 2026/10/21 09:35:48 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/10/22 10:41:24 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,6 @@ int	main(int argc, char **argc)
 	t_stack	a;
 
 	a = {NULL, 0};
+	// remember to check the parsing call at the begining 
+	// when receiving the arguments
 }
