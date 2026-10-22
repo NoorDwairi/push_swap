@@ -11,21 +11,53 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 void edge_cases(char *str){
-
-
-//	is_duplicat(str);
+	is_duplicat(str);
 	is_empty(str);
 	check_sign(str);
 }
-void	check( int argc ,char **argv)
+int	count_elements(char **argv)
 {
 	int i;
 	int j;
-	j =1;
-	i = 0;
-		while(argv[j])
+	int counter;
+	
+	counter = 0;
+	i = 1;
+	while(argv[i])
+	{
+		j = 0;
+		while(argv[i][j])
 		{
-			edge_cases(argv[j]);
+			if (argv[i][j] == ' ' && ft_isdigit(argv[i][j + 1]))
+				counter++;
 			j++;
+
 		}
+		counter++;
+		i++;
+	}
+	return(counter);
+}
+void	check( int argc ,char **argv)
+{
+	char **temp_res;
+	char **arr;
+	int i;
+	int j;
+	int k;
+
+	i = 1;
+	k = 0;
+	while (argv[i])
+	{
+		j = 0;
+		temp_res =ft_split(argv[i],' ');
+		while(temp_res[j])
+		{	
+			arr[k]= temp_res[j];
+			k++;
+			j++;  
+		}
+		i++;
+	}
 }

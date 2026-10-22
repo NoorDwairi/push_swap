@@ -19,7 +19,10 @@ int	main(int argc, char **argv)
 
 	a = {NULL, 0};
 	check(argc,argv);
-
-	// remember to check the parsing call at the begining 
-	// when receiving the arguments
+	// split 
+	// char **res = save the result of splitting args into array 
+	// check wether there is anything wrong , leave the program 
+	// atoi
+	// make the stack
+	// save the numbers into nodes 
 }
