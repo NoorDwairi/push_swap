@@ -13,11 +13,13 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	main(int argc, char **argc)
+int	main(int argc, char **argv)
 {
 	t_stack	a;
 
 	a = {NULL, 0};
+	check(argc,argv);
+
 	// remember to check the parsing call at the begining 
 	// when receiving the arguments
 }
