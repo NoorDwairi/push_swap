@@ -26,19 +26,18 @@ int	count_elements(char **argv)
 	while(argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
-			if (argv[i][j] == ' ' && ft_isdigit(argv[i][j + 1]))
+			if ( argv[i][j]&& (j == 0 || argv[i][j - 1] == ' '))// in this function we do not want to check the validation we just make a  counter to use it in a malloc which mean if it was like this "1a2 656" the counter will retrun 2 cuz we just want a size of a arr later we will check the numbers if they are valid or not
 				counter++;
 			j++;
-
 		}
-		counter++;
 		i++;
 	}
 	return(counter);
 }
-void	check( int argc ,char **argv)
+/* ❤️💪😂 */
+char 	**check( int argc ,char **argv)
 {
 	char **temp_res;
 	char **arr;
@@ -48,6 +47,9 @@ void	check( int argc ,char **argv)
 
 	i = 1;
 	k = 0;
+	arr = malloc (sizeof(char *) * (count_elements(argv) + 1));
+	if(!arr)
+	retrun (NULL);
 	while (argv[i])
 	{
 		j = 0;
@@ -60,4 +62,5 @@ void	check( int argc ,char **argv)
 		}
 		i++;
 	}
+	arr[k] = NULL;
 }
