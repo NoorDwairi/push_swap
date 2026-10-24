@@ -1,0 +1,81 @@
+void	free_tokens(char **token, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free(token[j]);
+		j++;
+	}
+	free(token);
+}
+
+int	count_elements_updated(char **argv)
+{
+	char	**temp_res;
+	int		i;
+	int		j;
+	int		counter;
+
+	i = 1;
+	counter = 0;
+	while (argv[i])
+	{
+		j = 0;
+		temp_res = ft_split(argv[i], ' ');
+		if (!temp_res)
+			return (-1);
+		while (temp_res[j])
+		{
+			counter++;
+			j++;
+		}
+		free_tokens(temp_res, j);
+		i++;
+	}
+	return (counter);
+}
+
+int	set_numbers(char **arr, char **temp_res, int k)
+{
+	int	j;
+
+	j = 0;
+	while (temp_res[j])
+	{
+		arr[k] = temp_res[j];
+		j++;
+		k++;
+	}
+	return (k);
+}
+
+char	**set_arr(char **argv)
+{
+	char	**arr;
+	char	**temp_res;
+	int		count_elements;
+	int		i;
+	int		k;
+
+	count_elements = count_elements_updated(argv);
+	if (count_elements <= 0)
+		return (NULL);
+	arr = malloc(sizeof(char *) * (count_elements + 1));
+	i = 1;
+	k = 0;
+	if (!arr)
+		return (NULL);
+	while (argv[i])
+	{
+		temp_res = ft_split(argv[i], ' ');
+		if (!temp_res)
+			return (free_tokens(arr, k), NULL);
+		k = set_numbers(arr, temp_res, k);
+		free(temp_res);
+		i++;
+	}
+	arr[k] = NULL;
+	return (arr);
+}

@@ -18,11 +18,11 @@ int	main(int argc, char **argv)
 	t_stack	a;
 
 	a = {NULL, 0};
-	check(argc,argv);
-	// split 
-	// char **res = save the result of splitting args into array 
-	// check wether there is anything wrong , leave the program 
+	check(argc, argv);
+	// split
+	// char **res = save the result of splitting args into array
+	// check wether there is anything wrong , leave the program
 	// atoi
 	// make the stack
-	// save the numbers into nodes 
+	// save the numbers into nodes
 }
