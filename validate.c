@@ -50,22 +50,16 @@ bool    validate_digits(char *arr)
 
 bool    validate_overflow(char *arr)
 {
-    int i;
-    long int limit;
-    long int num;
-
+    int     i;
+    long    limit;
+    long    num;
+    int     sign;
+    
     num = 0;
     i = 0;
     limit = INT_MAX ;
     if (arr[i] == '+')
         i++;
-    while(arr[i])
-    {
-        if (num > (limit - (arr[i] - '0')) / 10)
-            return(0);
-        num = num * 10 + (arr[i] - '0');
-        i++;
-    }
     if (arr[i] == '-')
     {
         limit = INT_MIN;
@@ -73,9 +67,10 @@ bool    validate_overflow(char *arr)
     }
     while(arr[i])
     {
-        if (num > (limit + (arr[i] - '0')) / 10)
-            return(0);
-        num = num * 10 - (arr[i] - '0');
+        digit = arr[i] -'0';
+        if (num < (limit - digit) / 10)
+                return(0);
+        num = num * 10 + digit;
         i++;
     }
     return(1);
