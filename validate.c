@@ -9,6 +9,7 @@
 /*   Updated: 2026/10/24 13:42:17 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <push_swap.h>
 
 bool     validate_sign(char *arr)
 {
@@ -50,11 +51,21 @@ bool    validate_digits(char *arr)
 bool    validate_overflow(char *arr)
 {
     int i;
-
     i = 0;
-    if(arr >= "2147483647" || arr <= "-2147483648")
-        return(0);
-    return(1);
+    limit = INT_MAX ;
+    if (arr[i] == '-')
+    {
+        limit = INT_MAX + 1;
+        i++;
+    }
+    else if (arr[i] == '+')
+        i++;
+    while(arr[i])
+    {
+        if (num *= 10 + (arr[i] - '0') <= limit)
+            num *= 10 + (arr[i] - '0') ;
+        i++;
+    }
 }
 
 int     validation(char **arr, int k)

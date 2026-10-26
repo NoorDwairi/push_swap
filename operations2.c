@@ -9,6 +9,7 @@
 /*   Updated: 2026/10/21 09:36:18 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <push_swap.h>
 
 void	push(t_stack *dest, t_stack *src)
 {

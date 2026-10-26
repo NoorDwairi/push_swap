@@ -9,6 +9,7 @@
 /*   Updated: 2026/10/21 17:27:28 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <push_swap.h>
 
 int	reverse_rotate(t_stack *test)
 {
