@@ -51,21 +51,34 @@ bool    validate_digits(char *arr)
 bool    validate_overflow(char *arr)
 {
     int i;
+    long int limit;
+    long int num;
+
+    num = 0;
     i = 0;
     limit = INT_MAX ;
-    if (arr[i] == '-')
-    {
-        limit = INT_MAX + 1;
-        i++;
-    }
-    else if (arr[i] == '+')
+    if (arr[i] == '+')
         i++;
     while(arr[i])
     {
-        if (num *= 10 + (arr[i] - '0') <= limit)
-            num *= 10 + (arr[i] - '0') ;
+        if (num > (limit - (arr[i] - '0')) / 10)
+            return(0);
+        num = num * 10 + (arr[i] - '0');
         i++;
     }
+    if (arr[i] == '-')
+    {
+        limit = INT_MIN;
+        i++;
+    }
+    while(arr[i])
+    {
+        if (num > (limit + (arr[i] - '0')) / 10)
+            return(0);
+        num = num * 10 - (arr[i] - '0');
+        i++;
+    }
+    return(1);
 }
 
 int     validation(char **arr, int k)
