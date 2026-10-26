@@ -54,7 +54,9 @@ bool    validate_overflow(char *arr)
     long    limit;
     long    num;
     int     sign;
-    
+    int digit;
+
+    sign = 1;
     num = 0;
     i = 0;
     limit = INT_MAX ;
@@ -63,6 +65,7 @@ bool    validate_overflow(char *arr)
     if (arr[i] == '-')
     {
         limit = INT_MIN;
+        sign = -1;
         i++;
     }
     while(arr[i])
