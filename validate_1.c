@@ -11,19 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 13:42:15 by dlababne          #+#    #+#             */
-/*   Updated: 2026/10/27 11:49:19 by ndwairi          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include <push_swap.h>
-
 bool     validate_sign(char *arr)
 {
     int i;
@@ -93,18 +80,16 @@ int     validation(char **arr, int k)
     i = 0;
     while(i < k)
     {
-        if (!arr[i][0])
-        return (ft_printf("ERROR\n"), 0); 
         check = validate_sign(arr[i]);
-       if (!check)
-            return(ft_printf("ERROR\n"), 0);
-        check = validate_digits(arr[i]);
         if (!check)
-            return(ft_printf("ERROR\n"), 0);
-        check = validate_overflow(arr[i]);
-        if (!check)
-            return(ft_printf("ERROR\n"), 0);
-        i++;
-    }
-    return(1);
+        return(ft_printf("ERROR\n"), 0);
+    check = validate_digits(arr[i]);
+    if (!check)
+    return(ft_printf("ERROR\n"), 0);
+check = validate_overflow(arr[i]);
+if (!check)
+return(ft_printf("ERROR\n"), 0);
+i++;
+}
+return(1);
 }
