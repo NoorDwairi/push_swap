@@ -48,14 +48,8 @@ bool    validate_digits(char *arr)
     return(1);
 }
 
-bool    validate_overflow(char *arr)
-{
-    int     i;
-    long    limit;
-    long    num;
-    int     sign;
-    int digit;
 
+<<<<<<< HEAD
     sign = 1;
     num = 0;
     i = 0;
@@ -75,6 +69,8 @@ bool    validate_overflow(char *arr)
     }
         return(1);
 }
+=======
+>>>>>>> 8587538 (dd)
 
 int     validation(char **arr, int k)
 {
