@@ -6,7 +6,7 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 13:42:15 by dlababne          #+#    #+#             */
-/*   Updated: 2026/10/24 13:42:17 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/10/27 11:49:19 by ndwairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <push_swap.h>
@@ -60,8 +60,12 @@ bool    validate_overflow(char *arr)
     num = 0;
     i = 0;
     limit = INT_MAX ;
-    if (arr[i] == '+')
+    if (arr[i] == '+' || arr[i] == '-')
+    {
+        if(arr[i] == '-')
+        limit = (long)INT_MAX + 1;
         i++;
+<<<<<<< HEAD
     if (arr[i] == '-')
     {
         limit = INT_MIN;
@@ -76,6 +80,17 @@ bool    validate_overflow(char *arr)
         num = num * 10 + digit;
         i++;
     }
+=======
+    }
+    while(arr[i])
+    {
+        if (num > (limit - (arr[i] - '0')) / 10)
+            return(0);
+        num = num * 10 + (arr[i] - '0');
+        i++;
+    }
+    
+>>>>>>> a0cd36d (finshing validation and start to fill stack)
     return(1);
 }
 
@@ -86,8 +101,10 @@ int     validation(char **arr, int k)
     i = 0;
     while(i < k)
     {
+        if (!arr[i][0])
+        return (ft_printf("ERROR\n"), 0); 
         check = validate_sign(arr[i]);
-        if (!check)
+       if (!check)
             return(ft_printf("ERROR\n"), 0);
         check = validate_digits(arr[i]);
         if (!check)

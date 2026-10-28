@@ -13,6 +13,7 @@
 # define PUSH_SWAP_H
 
 #include <limits.h>
+#include <stdbool.h>
 
 typedef struct s_node
 {

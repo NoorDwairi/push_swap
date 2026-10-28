@@ -24,4 +24,5 @@ int	main(int argc, char **argv)
 	// atoi
 	// make the stack
 	// save the numbers into nodes
+	// we must check if the argv is empty or not at the beginning 
 }
