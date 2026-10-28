@@ -39,17 +39,17 @@ int	count_elements_updated(char **argv)
 		temp_res = ft_split(argv[i], ' ');
 		if (!temp_res)
 			return (-1);
-		//here where i add the editing 
-			while (temp_res[j])
+		// here where i add the editing
+		while (temp_res[j])
 		{
 			counter++;
 			j++;
 		}
 		if (j == 0)
-{
-	free_tokens(temp_res, 0);
-	return (-1);
-}
+		{
+			free_tokens(temp_res, 0);
+			return (-1);
+		}
 		free_tokens(temp_res, j);
 		i++;
 	}
@@ -90,10 +90,7 @@ char	**set_arr(char **argv)
 	{
 		temp_res = ft_split(argv[i], ' ');
 		if (!temp_res)
-		{
-			ft_printf("ERROR\n");
 			return (free_tokens(arr, k), NULL);
-		}
 		k = set_numbers(arr, temp_res, k);
 		free(temp_res);
 		i++;
