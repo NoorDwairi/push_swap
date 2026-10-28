@@ -12,8 +12,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <limits.h>
-#include <stdbool.h>
+# include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_node
 {
@@ -25,6 +25,6 @@ typedef struct s_stack
 {
 	t_node			*top;
 	int				size;
-}	t_stack;
+}					t_stack;
 
 #endif

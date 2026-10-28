@@ -11,70 +11,88 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+<<<<<<< HEAD
 bool     validate_sign(char *arr)
-{
-    int i;
+=======
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/24 13:42:15 by dlababne          #+#    #+#             */
+/*   Updated: 2026/10/27 11:49:19 by ndwairi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <push_swap.h>
 
-    i = 0;
-    if (arr[i] == '-' || arr[i] == '+')
-    {
-        if(!(arr[i + 1] >= '0' && arr[i + 1] <= '9'))
-            return(0);
-        else
-            i++;
-    }
-    while(arr[i])
-    {
-        if (arr[i] == '-' || arr[i] == '+')
-            return(0);
-        i++;
-    }
-    return(1);
+bool	validate_sign(char *arr)
+>>>>>>> 427542431f0d34b38ebfa8cd08147ae687dc86e0
+{
+	int	i;
+
+	i = 0;
+	if (arr[i] == '-' || arr[i] == '+')
+	{
+		if (!(arr[i + 1] >= '0' && arr[i + 1] <= '9'))
+			return (0);
+		else
+			i++;
+	}
+	while (arr[i])
+	{
+		if (arr[i] == '-' || arr[i] == '+')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-bool    validate_digits(char *arr)
+bool	validate_digits(char *arr)
 {
-    int i;
-    
-    i = 0;
-    if(arr[i] == '-' || arr[i] == '+')
-        i = 1;
-    while(arr[i])
-    {
-        if(!(arr[i] >= '0' && arr[i] <= '9'))
-            return(0);
-        i++;
-    }
-    return(1);
+	int	i;
+
+	i = 0;
+	if (arr[i] == '-' || arr[i] == '+')
+		i = 1;
+	while (arr[i])
+	{
+		if (!(arr[i] >= '0' && arr[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-bool    validate_overflow(char *arr)
+bool	validate_overflow(char *arr)
 {
-int i;
-long int limit;
-long int num;
+	int			i;
+	long int	limit;
+	long int	num;
 
-    num = 0;
-    i = 0;
-    limit = INT_MAX ;
-if (arr[i] == '+' || arr[i] == '-')
-    {
-if(arr[i] == '-')
-        limit = (long)INT_MAX + 1;
-        i++;
-    }
-while(arr[i])
-    {
-if (num > (limit - (arr[i] - '0')) / 10)
-return(0);
-        num = num * 10 + (arr[i] - '0');
-        i++;
-    }
-return(1);
+	num = 0;
+	i = 0;
+	limit = INT_MAX;
+	if (arr[i] == '+' || arr[i] == '-')
+	{
+		if (arr[i] == '-')
+			limit = (long)INT_MAX + 1;
+		i++;
+	}
+	while (arr[i])
+	{
+		if (num > (limit - (arr[i] - '0')) / 10)
+			return (0);
+		num = num * 10 + (arr[i] - '0');
+		i++;
+	}
+	return (1);
 }
 
-int     validation(char **arr, int k)
+int	validation(char **arr, int k)
 {
+<<<<<<< HEAD
     int i;
     int check;
     i = 0;
@@ -90,6 +108,28 @@ check = validate_overflow(arr[i]);
 if (!check)
 return(ft_printf("ERROR\n"), 0);
 i++;
+=======
+	int	i;
+	int	check;
+
+	i = 0;
+	while (i < k)
+	{
+		if (!arr[i][0])
+			return (ft_printf("ERROR\n"), 0);
+		check = validate_sign(arr[i]);
+		if (!check)
+			return (ft_printf("ERROR\n"), 0);
+		check = validate_digits(arr[i]);
+		if (!check)
+			return (ft_printf("ERROR\n"), 0);
+		check = validate_overflow(arr[i]);
+		if (!check)
+			return (ft_printf("ERROR\n"), 0);
+		i++;
+	}
+	return (1);
+>>>>>>> 427542431f0d34b38ebfa8cd08147ae687dc86e0
 }
 return(1);
 }
