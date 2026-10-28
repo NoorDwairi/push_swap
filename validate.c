@@ -65,22 +65,6 @@ bool    validate_overflow(char *arr)
         if(arr[i] == '-')
         limit = (long)INT_MAX + 1;
         i++;
-<<<<<<< HEAD
-    if (arr[i] == '-')
-    {
-        limit = INT_MIN;
-        sign = -1;
-        i++;
-    }
-    while(arr[i])
-    {
-        digit = arr[i] -'0';
-        if (num < (limit - digit) / 10)
-                return(0);
-        num = num * 10 + digit;
-        i++;
-    }
-=======
     }
     while(arr[i])
     {
@@ -89,9 +73,7 @@ bool    validate_overflow(char *arr)
         num = num * 10 + (arr[i] - '0');
         i++;
     }
-    
->>>>>>> a0cd36d (finshing validation and start to fill stack)
-    return(1);
+        return(1);
 }
 
 int     validation(char **arr, int k)
