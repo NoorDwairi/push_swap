@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+// we do not use the rank until we do the startigies 
+
 t_node	*new_node(int value)
 {
 	t_node	*node;
@@ -23,27 +25,52 @@ t_node	*new_node(int value)
 	return (node);
 }
 //🇯🇴
-void	add_back(t_stack *stack, t_node *node)
+int 	add_node_back(t_stack *stack, t_node *node)
 {
 	t_node	*last;
 
 	if (!stack->top)
 	{
 		stack->top = node;
-		stack->size++;
 	}
-	last = stack->top;
-	while (last->next != NULL)
+	else
 	{
-		last = last->next;
+		last = stack->top;
+		while (last->next != NULL)
+		{
+			last = last->next;
+		}
+		last->next = node;
 	}
-	last->next = node;
 	stack->size++;
+	return(stack->size);
 }
-t_stack	*build_stack(char **arr, int size)
+
+t_stack *init_stack()
 {
+	t_stack *a;
+	t_stack *b;
+	a->top = NULL;
+	a->size =0;
+	b-> top = NULL;
+	b->size = 0;
+
 }
-int	nothing(int m, int n)
+t_stack	*build_stack(char **arr)
 {
-	return (n * m);
+	t_stack *a;
+
+	int i;
+	int size;
+	t_node *n;
+
+	i = 0;
+	while(arr[i])
+	{
+		n = new_node(ft_atoi(arr[i]));
+		 add_node_back(a, n);
+		i++;
+	}
+
+
 }
