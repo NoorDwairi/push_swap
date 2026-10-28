@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                         :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:56:30 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/26 08:56:33 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/10/28 14:42:59 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	free_tokens(char **token, int i)
 {
@@ -23,6 +23,7 @@ void	free_tokens(char **token, int i)
 	}
 	free(token);
 }
+
 int	count_tokens(char **tokens)
 {
 	int	i;
@@ -32,6 +33,7 @@ int	count_tokens(char **tokens)
 		i++;
 	return (i);
 }
+
 int	count_elements_updated(char **argv)
 {
 	char	**temp_res;
