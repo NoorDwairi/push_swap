@@ -94,8 +94,6 @@ int	validation(char **arr, int k)
 	i = 0;
 	while (i < k)
 	{
-		if (!arr[i][0])
-			return (ft_printf("ERROR\n"), 0);
 		check = validate_sign(arr[i]);
 		if (!check)
 			return (ft_printf("ERROR\n"), 0);
