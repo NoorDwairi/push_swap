@@ -46,25 +46,13 @@ int	count_elements_updated(char **argv)
 		temp_res = ft_split(argv[i], ' ');
 		if (!temp_res)
 			return (-1);
-<<<<<<< HEAD
 		j = count_tokens(temp_res);
-=======
-		// here where i add the editing
-		while (temp_res[j])
-		{
-			counter++;
-			j++;
-		}
->>>>>>> 427542431f0d34b38ebfa8cd08147ae687dc86e0
 		if (j == 0)
 		{
 			free_tokens(temp_res, 0);
 			return (-1);
 		}
-<<<<<<< HEAD
 		counter += j;
-=======
->>>>>>> 427542431f0d34b38ebfa8cd08147ae687dc86e0
 		free_tokens(temp_res, j);
 		i++;
 	}
