@@ -44,3 +44,7 @@ t_stack * build_stack(char **arr ,int size)
 {
 
 }
+int nothing (int m, int n)
+{
+    return (n *m);
+}
