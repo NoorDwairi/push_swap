@@ -32,13 +32,12 @@ int	rb(t_stack *b)
 int	rr(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
-		return (0);
-	if (a->size >= 2 || b->size >= 2)
-	{
-		rr(a, b);
-		write(1, "rr\n", 3);
-	}
-	return (-1);
+		return (-1);
+	if (a->size < 2  || b->size < 2)
+	return(-1);
+	rotate(a);
+	rotate(b);
+	write(1,"rr\n",3);
 }
 
 void	rotate(t_stack *test)

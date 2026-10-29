@@ -73,26 +73,27 @@ bool	validate_overflow(char *arr)
 	return (1);
 }
 
-int	validation(char **arr, int k)
+int	validation(char **arr)
 {
 	int i;
 	int check;
 	i = 0;
-	while (i < k)
+	while (arr[i])
 	{
 		check = validate_sign(arr[i]);
 		if (!check)
-			return (ft_printf("ERROR\n"), 0);
+			return (ft_printf("Error\n"), 0);
 		check = validate_digits(arr[i]);
 		if (!check)
-			return (ft_printf("ERROR\n"), 0);
+			return (ft_printf("Error\n"), 0);
 		check = validate_overflow(arr[i]);
 		if (!check)
-			return (ft_printf("ERROR\n"), 0);
-		check = validate_duplicate(arr);
-		if (!check)
-			return (ft_printf("ERROR\n"), 0);
+			return (ft_printf("Error\n"), 0);
+		
 		i++;
 	}
+	check = validate_duplicate(arr);
+		if (!check)
+			return (ft_printf("Error\n"), 0);
 	return (1);
 }

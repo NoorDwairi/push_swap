@@ -22,6 +22,7 @@ t_node	*new_node(int value)
 		return (NULL);
 	node->value = value;
 	node->next = NULL;
+	node -> rank = 0;
 	return (node);
 }
 //🇯🇴
@@ -62,24 +63,35 @@ int    build_stack(t_stack *stack, char **arr)
 	{
 		n = new_node(ft_atoi(arr[i]));
 		if(!n)
+		{
+			free_stack(stack);
 			return(0);
-		add_node_back(a, n);
+		}
+		add_node_back(stack, n);
 		i++;
-		size++;
 	}
 	return (1);
 }
 
 void    assign_ranks(t_stack *a)
 {
-	t_stack		*current;
-	t_stack		*compare;
+	t_node		*current;
+	t_node		*compare;
 	int		rank;
 
 	current = a->top;
-	rank = 0;
-	while(current->next)
+	while(current)
 	{
-//blah blah blah
+		rank = 0;
+		compare = a -> top;
+		while(compare)
+		{
+			if(current-> value > compare-> value)
+			rank++;
+		compare = compare -> next;
+		}
+		current -> rank = rank;
+		current = current -> next;
 	}
+
 }
