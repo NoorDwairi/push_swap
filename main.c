@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	init_stack(&b);
 	if (validation == 0)
 		return (0);
-	if(!build_stack(arr))
-		return(0);
+	if (!build_stack(arr))
+		return (0);
 	// split ✅
 	// char **res = save the result of splitting args into array✅
 	// check wether there is anything wrong , leave the program✅
