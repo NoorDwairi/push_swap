@@ -27,7 +27,7 @@ int	pa(t_stack *b, t_stack *a)
 {
 	if (b->size == 0)
 		return (-1);
-	push(b, a);
+	push(a, b);
 	write(1, "pa\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
@@ -36,7 +36,7 @@ int	pb(t_stack *b, t_stack *a)
 {
 	if (a->size == 0)
 		return (-1);
-	push(a, b);
+	push(b, a);
 	write(1, "pb\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
