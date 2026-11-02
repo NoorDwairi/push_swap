@@ -17,6 +17,7 @@ int	ra(t_stack *a)
 		return (-1);
 	rotate(a);
 	write(1, "ra\n", 3);
+	bench->ra++;
 	return (0);
 }
 

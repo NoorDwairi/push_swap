@@ -45,12 +45,12 @@ void free_stack(t_stack *s)
 		next = current ->next;
 		free(current);
 		current = next;
-
 	}
 	s->top = NULL;
-	s-> size = 0;
+	s->size = 0;
 }
 // i add this function to free the char ** arr that returend from the spilt 
+
 void	free_arr(char **arr)
 {
 	int	i;

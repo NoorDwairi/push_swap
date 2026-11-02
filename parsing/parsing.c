@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	free_tokens(char **token, int i)
+void	free_tokens(char **token)
 {
 	int	j;
-
+	if (!token)
+		return ;
 	j = 0;
-	while (j < i)
+	while (token[j])
 	{
 		free(token[j]);
 		j++;
@@ -51,11 +52,11 @@ int	count_elements_updated(char **argv)
 		j = count_tokens(temp_res);
 		if (j == 0)
 		{
-			free_tokens(temp_res, 0);
+			free_tokens(temp_res);
 			return (-1);
 		}
 		counter += j;
-		free_tokens(temp_res, j);
+		free_tokens(temp_res);
 		i++;
 	}
 	return (counter);
@@ -95,7 +96,10 @@ char	**set_arr(char **argv)
 	{
 		temp_res = ft_split(argv[i], ' ');
 		if (!temp_res)
-			return (free_tokens(arr, k), NULL);
+		{
+			arr[k] = NULL;
+			return (free_tokens(arr), NULL);
+		}
 		k = set_numbers(arr, temp_res, k);
 		free(temp_res);
 		i++;

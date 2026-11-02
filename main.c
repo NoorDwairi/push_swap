@@ -17,14 +17,17 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 	char	**arr;
-
+	
 	arr = set_arr(argv);
+	if (!arr)
+		return(0);
 	init_stack(&a);
 	init_stack(&b);
-	if (validation == 0)
-		return (0);
-	if (!build_stack(arr))
-		return (0);
+
+	if (!validation(arr, count_tokens(arr)))
+		return (free_tokens(arr), 0);
+	if(!build_stack(&a, arr))
+		return(free_tokens(arr), 0);
 	// split ✅
 	// char **res = save the result of splitting args into array✅
 	// check wether there is anything wrong , leave the program✅

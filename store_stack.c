@@ -6,10 +6,11 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 14:03:42 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/27 14:03:44 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/10/31 12:11:26 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include <stdlib.h>
 
 // we do not use the rank until we do the startigies 
 
@@ -73,25 +74,3 @@ int    build_stack(t_stack *stack, char **arr)
 	return (1);
 }
 
-void    assign_ranks(t_stack *a)
-{
-	t_node		*current;
-	t_node		*compare;
-	int		rank;
-
-	current = a->top;
-	while(current)
-	{
-		rank = 0;
-		compare = a -> top;
-		while(compare)
-		{
-			if(current-> value > compare-> value)
-			rank++;
-		compare = compare -> next;
-		}
-		current -> rank = rank;
-		current = current -> next;
-	}
-
-}
