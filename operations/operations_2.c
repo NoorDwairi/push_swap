@@ -29,7 +29,11 @@ int	pa(t_stack *b, t_stack *a, t_bench *bench)
 		return (-1);
 	push(a, b);
 	write(1, "pa\n", 3);
+<<<<<<< HEAD
 	bench->pa++;
+=======
+	
+>>>>>>> 11ea1a54d16ad72e0ce1dc3fcf3aba1eb9dee662
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
