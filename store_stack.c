@@ -52,6 +52,7 @@ void 	init_stack(t_stack *s)
 {
 	s->top = NULL;
 	s->size =0;
+	s->config = NULL;
 }
 
 int    build_stack(t_stack *stack, char **arr)

@@ -98,13 +98,3 @@ int	validation(char **arr)
 	return (1);
 }
 
-void	parsing_2(char **argv, t_bench *bench)
-{
-	char *strategy;
-	if(argv[1] == "--bench")
-		bench->bench = 1;
-	strategy = get_strategy(argv[1]);
-	if (strategy == "ADAPTIIVE")
-		strategy = get_strategy(argv[2]);
-
-}

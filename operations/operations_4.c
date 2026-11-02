@@ -39,8 +39,8 @@ int	rra(t_stack *a)
 	if (!a || a->size < 2)
 		return (-1);
 	reverse_rotate(a);
-	bench->rra++;
-	bench->total_ops++;
+	a->config->rra++;
+	a->config->total_ops++;
 	write(1, "rra\n", 4);
 	return (0);
 }
@@ -50,8 +50,8 @@ int	rrb(t_stack *b)
 	if (!b || b->size < 2)
 		return (-1);
 	reverse_rotate(b);
-	bench->rrb++;
-	bench->total_ops++;
+	a->config->rrb++;
+	a->config->total_ops++;
 	write(1, "rrb\n", 4);
 	return (0);
 }
@@ -64,27 +64,8 @@ int	rrr(t_stack *a, t_stack *b)
 		return (-1);
 	reverse_rotate(a);
 	reverse_rotate(b);
-	bench->rrr++;
-	bench->total_ops++;
+	a->config->rrr++;
+	a->config->total_ops++;
 	write(1, "rrr\n", 4);
 	return (0);
-}
-
-void init_operations(t_bench *bench)
-{
-	bench->sa = 0;
-	bench->sb = 0;
-	bench->ss = 0;
-	bench->pa = 0;
-	bench->pb = 0;
-	bench->ra = 0;
-	bench->rb = 0;
-	bench->rr = 0;
-	bench->rra = 0;
-	bench->rrb = 0;
-	bench->rrr = 0;
-	bench->total_ops = 0;
-	bench->bench = 0;
-	bench->strategy = "ADAPTIVE";
-	disorder = 0;
 }

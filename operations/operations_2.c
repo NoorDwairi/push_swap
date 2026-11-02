@@ -23,24 +23,24 @@ void	push(t_stack *dest, t_stack *src)
 	dest->size++;
 }
 
-int	pa(t_stack *b, t_stack *a,  t_bench *bench)
+int	pa(t_stack *b, t_stack *a)
 {
 	if (b->size == 0)t
 		return (-1);
 	push(a, b);
 	write(1, "pa\n", 3);
-	bench->pa++;
-    bench->total_ops++;
+	a->config->pa++;
+    a->config->total_ops++;
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	pb(t_stack *b, t_stack *a,t_bench *bench)
+int	pb(t_stack *b, t_stack *a)
 {
 	if (a->size == 0)
 		return (-1);
 	push(b, a);
 	write(1, "pb\n", 3);
-	bench->pb++;
-    bench->total_ops++;
+	a->config->pb++;
+    a->config->total_ops++;
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }

@@ -21,36 +21,36 @@ void	swap(t_stack *test)
 	test->top = temp;
 }
 
-int	sa(t_stack *stack_a ,t_bench *bench)
+int	sa(t_stack *stack_a )
 {
 	if (stack_a->size < 2)
 		return (-1);
 	swap(stack_a);
-	bench->sa++;
-	bench->total_ops++;
+	a->config->sa++;
+	a->config->total_ops++;
 	write(1, "sa\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	sb(t_stack *stack_b,t_bench *bench)
+int	sb(t_stack *stack_b)
 {
 	if (stack_b->size < 2)
 		return (-1);
 	swap(stack_b);
-	bench->sb++;
-	bench->total_ops++;
+	a->config->sb++;
+	a->config->total_ops++;
 	write(1, "sb\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	ss(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
+int	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size < 2 || stack_b->size < 2)
 		return (-1);
 	swap(stack_a);
 	swap(stack_b);
-	bench->ss++;
-	bench->total_ops++;
+	a->config->ss++;
+	a->config->total_ops++;
 	write(1, "ss\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
