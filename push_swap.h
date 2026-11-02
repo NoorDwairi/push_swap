@@ -30,7 +30,7 @@ typedef struct s_stack
 // I add a struct to check weather there is a flag stands for chosen strategy 
 // or to use the default one <ADAPTIVE>
 
-typedef enum struct s_strategy
+typedef  enum s_strategy 
 {
 	SIMPLE,
 	MEDIUM,
@@ -38,9 +38,26 @@ typedef enum struct s_strategy
 	ADAPTIVE
 }	t_strategy;
 
+typedef struct  s_bench
+{
+
+    double  disorder;
+    int     total_ops;
+    int     sa;
+    int     sb;
+    int     ss;
+    int     pa;
+    int     pb;
+    int     ra;
+    int     rb;
+    int     rr;
+    int     rra;
+    int     rrb;
+    int     rrr;
+} t_bench ;
 
 
-#endif
+
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
@@ -76,3 +93,6 @@ void free_stack(t_stack *s);
 void	free_arr(char **arr);
 int     ft_atoi(const char *nptr);
 double compute_disorder(t_stack *a);
+
+#endif
+

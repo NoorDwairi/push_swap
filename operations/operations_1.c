@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	swap(t_stack *test)
+void	swap(t_stack *test,
 {
 	t_node	*temp;
 
@@ -21,12 +21,13 @@ void	swap(t_stack *test)
 	test->top = temp;
 }
 
-int	sa(t_stack *stack_a)
+int	sa(t_stack *stack_a t_bench *b))
 {
 	if (stack_a->size < 2)
 		return (-1);
 	swap(stack_a);
 	write(1, "sa\n", 3);
+	
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 

@@ -21,7 +21,7 @@ void    assign_ranks(t_stack *a)
 		current = current -> next;
 	}
 }
-
+// 5 ->67 ->82 -> 9
 double  compute_disorder(t_stack *a)
 {
     int     mistake;
