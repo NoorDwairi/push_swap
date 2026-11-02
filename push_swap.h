@@ -38,7 +38,20 @@ typedef enum struct s_strategy
 	ADAPTIVE
 }	t_strategy;
 
-
+typedef	struct	s_operations
+{
+	int sa;
+	int sb;
+	int	ss;
+	int pa;
+	int pb;
+	int	ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+}	t_operations;
 
 #endif
 
@@ -76,3 +89,4 @@ void free_stack(t_stack *s);
 void	free_arr(char **arr);
 int     ft_atoi(const char *nptr);
 double compute_disorder(t_stack *a);
+void init_operations(t_operations *ops);

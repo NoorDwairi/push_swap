@@ -61,3 +61,4 @@ t_strategy get_strategy(char *arg)
         return (ADAPTIVE);
     return (ADAPTIVE);
 }
+

@@ -23,12 +23,13 @@ void	push(t_stack *dest, t_stack *src)
 	dest->size++;
 }
 
-int	pa(t_stack *b, t_stack *a)
+int	pa(t_stack *b, t_stack *a, t_bench *bench)
 {
 	if (b->size == 0)
 		return (-1);
 	push(a, b);
 	write(1, "pa\n", 3);
+	bench->pa++;
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 

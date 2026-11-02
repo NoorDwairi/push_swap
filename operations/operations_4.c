@@ -63,3 +63,18 @@ int	rrr(t_stack *a, t_stack *b)
 	write(1, "rrr\n", 4);
 	return (0);
 }
+
+void init_operations(t_operations *ops)
+{
+	ops->sa = 0;
+	ops->sb = 0;
+	ops->ss = 0;
+	ops->pa = 0;
+	ops->pb = 0;
+	ops->ra = 0;
+	ops->rb = 0;
+	ops->rr = 0;
+	ops->rra = 0;
+	ops->rrb = 0;
+	ops->rrr = 0;
+}
