@@ -11,25 +11,29 @@
 /* ************************************************************************** */
 #include <push_swap.h>
 
-int	ra(t_stack *a)
+int	ra(t_stack *a, t_bench *bench)
 {
 	if (!a || a->size < 2)
 		return (-1);
 	rotate(a);
+	bench->ra++;
+	bench->total_ops++;
 	write(1, "ra\n", 3);
 	return (0);
 }
 
-int	rb(t_stack *b)
+int	rb(t_stack *b, t_bench *bench)
 {
 	if (!b || b->size < 2)
 		return (-1);
 	rotate(b);
+	bench->rb++;
+    bench->total_ops++;
 	write(1, "rb\n", 3);
 	return (0);
 }
 
-int	rr(t_stack *a, t_stack *b)
+int	rr(t_stack *a, t_stack *b, t_)
 {
 	if (!a || !b)
 		return (-1);
@@ -37,6 +41,8 @@ int	rr(t_stack *a, t_stack *b)
 	return(-1);
 	rotate(a);
 	rotate(b);
+	bench->rr++;
+	bench->total_ops++;
 	write(1,"rr\n",3);
 }
 

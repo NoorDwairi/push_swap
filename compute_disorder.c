@@ -62,3 +62,8 @@ t_strategy get_strategy(char *arg)
     return (ADAPTIVE);
 }
 
+void    print_bench(t_bench *bench, t_stack *a, )
+{
+    printf("[bench] disorder: %.2f%%", (compute_disorder(&a)*100));
+    printf("[bench] strategy: %s / O(n√n)", get_strategy(arg));
+}

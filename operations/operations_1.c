@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	swap(t_stack *test,
+void	swap(t_stack *test)
 {
 	t_node	*temp;
 
@@ -21,39 +21,36 @@ void	swap(t_stack *test,
 	test->top = temp;
 }
 
-<<<<<<< HEAD
-int	sa(t_stack *stack_a, t_operations *ops)
-=======
-int	sa(t_stack *stack_a t_bench *b))
->>>>>>> 11ea1a54d16ad72e0ce1dc3fcf3aba1eb9dee662
+int	sa(t_stack *stack_a ,t_bench *bench)
 {
 	if (stack_a->size < 2)
 		return (-1);
 	swap(stack_a);
-	ops->sa++;
+	bench->sa++;
+	bench->total_ops++;
 	write(1, "sa\n", 3);
-	
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	sb(t_stack *stack_b,t_operations *ops)
+int	sb(t_stack *stack_b,t_bench *bench)
 {
 	if (stack_b->size < 2)
 		return (-1);
 	swap(stack_b);
-	ops->sb++;
+	bench->sb++;
+	bench->total_ops++;
 	write(1, "sb\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	ss(t_stack *stack_a, t_stack *stack_b, t_operations *ops)
+int	ss(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	if (stack_a->size < 2 || stack_b->size < 2)
 		return (-1);
 	swap(stack_a);
 	swap(stack_b);
-	ops->sa++;
-	ops->sb++;
+	bench->ss++;
+	bench->total_ops++;
 	write(1, "ss\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
