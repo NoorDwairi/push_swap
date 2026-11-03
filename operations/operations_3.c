@@ -33,7 +33,11 @@ int	rb(t_stack *b)
 	return (0);
 }
 
+<<<<<<< HEAD
+int	rr(t_stack *a, t_stack *b, t_bench *bench)
+=======
 int	rr(t_stack *a, t_stack *b)
+>>>>>>> bcf85a2a5d45d7904c0064c0aecbee07a59ea20a
 {
 	if (!a || !b)
 		return (-1);

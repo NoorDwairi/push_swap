@@ -62,6 +62,30 @@ t_strategy get_strategy(char *arg)
     return (ADAPTIVE);
 }
 
+<<<<<<< HEAD
+void    print_bench(t_stack *a)
+{
+    double disorder ;
+
+    disorder = compute_disorder(a);
+    printf("[bench] disorder: %.2f%%\n", (disorder*100));
+    printf("[bench] strategy: %s / %s\n",a->config->selected , measure_complexity(disorder));
+    printf("[bench] total_ops: %d\n", a->config->total_ops);
+    printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", a->config->sa, a->config->sb, a->config->ss, a->config->pa, a->config->pb);
+    printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", a->config->ra, a->config->rb,  a->config->rr, a->config->rra, a->config->rrb, a->config->rrr);
+}
+
+char *measure_complexity(double d)
+{
+    if (d > 0.0 && d < 0.2)
+        return ("O(n²)");
+    else if (d >= 0.2 && d < 0.5)
+        return ("O(n√n)");
+    else if (d >= 0.5 && d < 1.0)
+        return ("O(n log n)");
+    else 
+        return("ERROR");
+=======
 void    print_config(t_config *bench, t_stack *a, )
 {
     printf("[bench] disorder: %.2f%%", (compute_disorder(&a)*100));
@@ -77,4 +101,5 @@ void	parsing_2(char **argv)
 	if (strategy == "ADAPTIIVE")
 		strategy = get_strategy(argv[2]);
 
+>>>>>>> bcf85a2a5d45d7904c0064c0aecbee07a59ea20a
 }

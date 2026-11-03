@@ -34,7 +34,7 @@ int	reverse_rotate(t_stack *test)
 	return (0);
 }
 
-int	rra(t_stack *a)
+int	rra(t_stack *a, t_bench *bench)
 {
 	if (!a || a->size < 2)
 		return (-1);
@@ -45,7 +45,7 @@ int	rra(t_stack *a)
 	return (0);
 }
 
-int	rrb(t_stack *b)
+int	rrb(t_stack *b, t_bench *bench)
 {
 	if (!b || b->size < 2)
 		return (-1);
@@ -56,7 +56,7 @@ int	rrb(t_stack *b)
 	return (0);
 }
 
-int	rrr(t_stack *a, t_stack *b)
+int	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (!a || !b)
 		return (-1);
