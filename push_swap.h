@@ -21,11 +21,7 @@ typedef struct s_node
 	int				rank;
 	struct s_node	*next;
 }					t_node;
-typedef struct s_stack
-{
-	t_node			*top;
-	int				size;
-}					t_stack;
+					t_stack;
 
 // I add a struct to check weather there is a flag stands for chosen strategy 
 // or to use the default one <ADAPTIVE>
@@ -38,13 +34,14 @@ typedef  enum s_strategy
 	ADAPTIVE
 }	t_strategy;
 
-typedef struct  s_bench
+typedef struct s_config
 {
 
     double  disorder;
-	char	*strategy;
+	t_strategy	selected;
+    t_strategy used;
 	bool		bench;
-    int     total_ops;
+    int total_ops;
     int     sa;
     int     sb;
     int     ss;
@@ -56,7 +53,18 @@ typedef struct  s_bench
     int     rra;
     int     rrb;
     int     rrr;
+<<<<<<< HEAD
 }	t_bench;
+=======
+ }	t_config;
+
+typedef struct s_stack
+{
+	t_node			*top;
+	int				size;
+    t_config *config;
+} t_stack;
+>>>>>>> bcf85a2a5d45d7904c0064c0aecbee07a59ea20a
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
