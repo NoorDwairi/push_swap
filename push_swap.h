@@ -52,9 +52,6 @@ typedef struct s_config
     int     rra;
     int     rrb;
     int     rrr;
-<<<<<<< HEAD
-}	t_bench;
-=======
  }	t_config;
 
 typedef struct s_stack
@@ -62,12 +59,7 @@ typedef struct s_stack
 	t_node			*top;
 	int				size;
     t_config *config;
-<<<<<<< HEAD
 }   t_stack;
-=======
-} t_stack;
->>>>>>> bcf85a2a5d45d7904c0064c0aecbee07a59ea20a
->>>>>>> 2d42fa75bcede18d3ca6d5f4a6433c6ca791638c
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
