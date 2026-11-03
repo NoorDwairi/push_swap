@@ -81,10 +81,10 @@ void    print_bench(t_stack *a)
 {
     if (!a || !a->config)
         return ;
-    printf("[bench] disorder: %.2f%%\n",
-        a->config->disorder*100));
-    printf("[bench] strategy: %s / %s\n",
-        strategy_name(a->config->selected) , measure_complexity(config.disorder));
+    printf(stderr, "[bench] disorder: %.2f%%\n",
+        a->config->disorder * 100);
+    printf(stderr, "[bench] strategy: %s\n",
+        strategy_name(a->config->selected));
     printf("[bench] total_ops: %d\n",
         a->config->total_ops);
     printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
@@ -105,17 +105,3 @@ char *measure_complexity(t_strategy used)
         return ("O(n log n)");
     return ("Unknown");
 }
-
-/*
-char *measure_complexity(double d)
-{
-    if (d > 0.0 && d < 0.2)
-        return ("O(n²)");
-    else if (d >= 0.2 && d < 0.5)
-        return ("O(n√n)");
-    else if (d >= 0.5 && d < 1.0)
-        return ("O(n log n)");
-    else 
-        return("ERROR");
-}
-*/
