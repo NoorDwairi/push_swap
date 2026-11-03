@@ -49,19 +49,4 @@ void free_stack(t_stack *s)
 	s->top = NULL;
 	s->size = 0;
 }
-// i add this function to free the char ** arr that returend from the spilt 
 
-void	free_arr(char **arr)
-{
-	int	i;
-
-	if (!arr)
-		return ;
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}

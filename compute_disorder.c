@@ -5,7 +5,8 @@ void    assign_ranks(t_stack *a)
 	t_node		*current;
 	t_node		*compare;
 	int		rank;
-
+    if (!a)
+        return ;
 	current = a->top;
 	while(current)
 	{
@@ -21,7 +22,7 @@ void    assign_ranks(t_stack *a)
 		current = current -> next;
 	}
 }
-// 5 ->67 ->82 -> 9
+
 double  compute_disorder(t_stack *a)
 {
     int     mistake;
@@ -47,33 +48,65 @@ double  compute_disorder(t_stack *a)
     }
     return ((double)mistake / total_pairs);
 }
-// the below function checks what strategy to use and return it 
-// so i can decide which strategy to call
-t_strategy get_strategy(char *arg)
+
+t_strategy	get_strategy(char *arg)
 {
-    if (ft_strncmp(arg, "--simple", 9) == 0)
-        return (SIMPLE);
-    if (ft_strncmp(arg, "--medium", 9) == 0)
-        return (MEDIUM);
-    if (ft_strncmp(arg, "--complex", 10) == 0)
-        return (COMPLEX);
-    if (ft_strncmp(arg, "--adaptive", 11) == 0)
-        return (ADAPTIVE);
-    return (ADAPTIVE);
+	if (!arg)
+		return (ADAPTIVE);
+	if (ft_strncmp(arg, "--simple", 9) == 0)
+		return (SIMPLE);
+	if (ft_strncmp(arg, "--medium", 9) == 0)
+		return (MEDIUM);
+	if (ft_strncmp(arg, "--complex", 10) == 0)
+		return (COMPLEX);
+	if (ft_strncmp(arg, "--adaptive", 11) == 0)
+		return (ADAPTIVE);
+	return (INVALID);
+}
+
+char	*strategy_name(t_strategy strategy)
+{
+	if (strategy == SIMPLE)
+		return ("simple");
+	if (strategy == MEDIUM)
+		return ("medium");
+	if (strategy == COMPLEX)
+		return ("complex");
+	if (strategy == ADAPTIVE)
+		return ("adaptive");
+	return ("invalid");
 }
 
 void    print_bench(t_stack *a)
 {
-    double disorder ;
-
-    disorder = compute_disorder(a);
-    printf("[bench] disorder: %.2f%%\n", (disorder*100));
-    printf("[bench] strategy: %s / %s\n",a->config->selected , measure_complexity(disorder));
-    printf("[bench] total_ops: %d\n", a->config->total_ops);
-    printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", a->config->sa, a->config->sb, a->config->ss, a->config->pa, a->config->pb);
-    printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", a->config->ra, a->config->rb,  a->config->rr, a->config->rra, a->config->rrb, a->config->rrr);
+    if (!a || !a->config)
+        return ;
+    printf("[bench] disorder: %.2f%%\n",
+        a->config->disorder*100));
+    printf("[bench] strategy: %s / %s\n",
+        strategy_name(a->config->selected) , measure_complexity(config.disorder));
+    printf("[bench] total_ops: %d\n",
+        a->config->total_ops);
+    printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+        a->config->sa, a->config->sb, a->config->ss,
+        a->config->pa, a->config->pb);
+    printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+        a->config->ra, a->config->rb,  a->config->rr, a->config->rra,
+        a->config->rrb, a->config->rrr);
 }
 
+char *measure_complexity(t_strategy used)
+{
+    if (used == SIMPLE)
+        return ("O(n²)");
+    if (used == MEDIUM)
+        return ("O(n√n)");
+    if (used == COMPLEX)
+        return ("O(n log n)");
+    return ("Unknown");
+}
+
+/*
 char *measure_complexity(double d)
 {
     if (d > 0.0 && d < 0.2)
@@ -85,3 +118,4 @@ char *measure_complexity(double d)
     else 
         return("ERROR");
 }
+*/

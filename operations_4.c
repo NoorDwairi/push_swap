@@ -9,7 +9,7 @@
 /*   Updated: 2026/10/21 17:27:28 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	reverse_rotate(t_stack *test)
 {
@@ -34,7 +34,7 @@ int	reverse_rotate(t_stack *test)
 	return (0);
 }
 
-int	rra(t_stack *a, t_bench *bench)
+int	rra(t_stack *a)
 {
 	if (!a || a->size < 2)
 		return (-1);
@@ -45,25 +45,27 @@ int	rra(t_stack *a, t_bench *bench)
 	return (0);
 }
 
-int	rrb(t_stack *b, t_bench *bench)
+int	rrb(t_stack *b)
 {
 	if (!b || b->size < 2)
 		return (-1);
 	reverse_rotate(b);
-	a->config->rrb++;
-	a->config->total_ops++;
+	b->config->rrb++;
+	b->config->total_ops++;
 	write(1, "rrb\n", 4);
 	return (0);
 }
 
-int	rrr(t_stack *a, t_stack *b, t_bench *bench)
+int	rrr(t_stack *a, t_stack *b)
 {
 	if (!a || !b)
 		return (-1);
 	if (a->size < 2 && b->size < 2)
 		return (-1);
-	reverse_rotate(a);
-	reverse_rotate(b);
+	if (a->size >= 2)
+    	reverse_rotate(a);
+	if (b->size >= 2)
+    	reverse_rotate(b);	
 	a->config->rrr++;
 	a->config->total_ops++;
 	write(1, "rrr\n", 4);

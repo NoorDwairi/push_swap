@@ -16,6 +16,8 @@ bool	validate_sign(char *arr)
 	int	i;
 
 	i = 0;
+	if (!arr || !arr[0])
+    	return (0);
 	if (arr[i] == '-' || arr[i] == '+')
 	{
 		if (!(arr[i + 1] >= '0' && arr[i + 1] <= '9'))
@@ -75,26 +77,25 @@ bool	validate_overflow(char *arr)
 
 int	validation(char **arr)
 {
-	int i;
-	int check;
+	int	i;
+	int	check;
+
 	i = 0;
 	while (arr[i])
 	{
 		check = validate_sign(arr[i]);
 		if (!check)
-			return (ft_printf("Error\n"), 0);
+			return (write(2, "Error\n", 6), 0);
 		check = validate_digits(arr[i]);
 		if (!check)
-			return (ft_printf("Error\n"), 0);
+			return (write(2, "Error\n", 6), 0);
 		check = validate_overflow(arr[i]);
 		if (!check)
-			return (ft_printf("Error\n"), 0);
-		
+			return (write(2, "Error\n", 6), 0);
 		i++;
 	}
 	check = validate_duplicate(arr);
-		if (!check)
-			return (ft_printf("Error\n"), 0);
+	if (!check)
+		return (write(2, "Error\n", 6), 0);
 	return (1);
 }
-

@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations2.c                                      :+:      :+:    :+:   */
+/*   operations_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 09:27:27 by dlababne          #+#    #+#             */
-/*   Updated: 2026/10/21 09:36:18 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/03 13:00:47 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	push(t_stack *dest, t_stack *src)
 {
@@ -23,24 +23,24 @@ void	push(t_stack *dest, t_stack *src)
 	dest->size++;
 }
 
-int	pa(t_stack *b, t_stack *a)
+int	pa(t_stack *a, t_stack *b)
 {
-	if (b->size == 0)t
+	if (!a || !b || !b->top)
 		return (-1);
 	push(a, b);
 	write(1, "pa\n", 3);
 	a->config->pa++;
-    a->config->total_ops++;
-	return (0); // at the beginning cuz we will declare a counter maybe ;)
+	a->config->total_ops++;
+	return (0);
 }
 
-int	pb(t_stack *b, t_stack *a)
+int	pb(t_stack *a, t_stack *b)
 {
-	if (a->size == 0)
+	if (!a || !b || !a->top)
 		return (-1);
 	push(b, a);
 	write(1, "pb\n", 3);
 	a->config->pb++;
-    a->config->total_ops++;
-	return (0); // at the beginning cuz we will declare a counter maybe ;)
+	a->config->total_ops++;
+	return (0);
 }

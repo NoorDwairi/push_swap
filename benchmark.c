@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-void init_config(t_config *b)
+
+void	init_config(t_config *cfg)
 {
-    b ->     disorder=0.0;
-    b ->     total_ops=0;
-    b ->     sa=0;
-    b ->     sb=0;
-    b ->     ss=0;
-    b ->     pa=0;
-    b ->     pb=0;
-    b ->     ra=0;
-    b ->     rb=0;
-    b ->     rr=0;
-    b ->     rra=0;
-    b ->     rrb=0;
-    b ->     rrr=0;
-    b ->    used= ADAPTIVE;
-    b ->    selected = ADAPTIVE;
-    b ->    bench = 0;
+	cfg->disorder = 0.0;
+	cfg->total_ops = 0;
+	cfg->sa = 0;
+	cfg->sb = 0;
+	cfg->ss = 0;
+	cfg->pa = 0;
+	cfg->pb = 0;
+	cfg->ra = 0;
+	cfg->rb = 0;
+	cfg->rr = 0;
+	cfg->rra = 0;
+	cfg->rrb = 0;
+	cfg->rrr = 0;
+	cfg->used = ADAPTIVE;
+	cfg->selected = ADAPTIVE;
+	cfg->bench = false;
 }
 
 
