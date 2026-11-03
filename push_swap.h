@@ -60,7 +60,7 @@ typedef struct s_stack
 	t_node			*top;
 	int				size;
     t_config *config;
-} t_stack;
+}   t_stack;
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
@@ -99,3 +99,4 @@ double compute_disorder(t_stack *a);
 
 #endif
 
+//we are here 
