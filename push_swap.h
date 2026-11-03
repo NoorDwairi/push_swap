@@ -20,8 +20,7 @@ typedef struct s_node
 	int				value;
 	int				rank;
 	struct s_node	*next;
-}					t_node;
-					t_stack;
+}   t_node;
 
 // I add a struct to check weather there is a flag stands for chosen strategy 
 // or to use the default one <ADAPTIVE>
