@@ -55,6 +55,10 @@ typedef struct s_config
     int     rra;
     int     rrb;
     int     rrr;
+<<<<<<< HEAD
+
+=======
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d
  }	t_config;
 
 typedef struct s_stack
@@ -62,7 +66,15 @@ typedef struct s_stack
 	t_node			*top;
 	int				size;
     t_config *config;
+<<<<<<< HEAD
+
 }   t_stack;
+
+
+
+=======
+}   t_stack;
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
@@ -104,6 +116,10 @@ void    print_bench(t_stack *a);
 char    *measure_complexity(t_strategy used);
 char	*strategy_name(t_strategy strategy);
 
+<<<<<<< HEAD
+#endif
+=======
 #endif
 
 //we are here 
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d
