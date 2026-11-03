@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 08:56:08 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/31 12:12:32 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/03 12:58:59 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -14,24 +14,26 @@
 
 # include <limits.h>
 # include <stdbool.h>
+# include <stddef.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_node
 {
 	int				value;
 	int				rank;
 	struct s_node	*next;
-}					t_node;
-					t_stack;
+}   t_node;
 
 // I add a struct to check weather there is a flag stands for chosen strategy 
 // or to use the default one <ADAPTIVE>
-
-typedef  enum s_strategy 
+typedef enum s_strategy
 {
 	SIMPLE,
 	MEDIUM,
 	COMPLEX,
-	ADAPTIVE
+	ADAPTIVE,
+	INVALID
 }	t_strategy;
 
 typedef struct s_config
@@ -53,7 +55,10 @@ typedef struct s_config
     int     rra;
     int     rrb;
     int     rrr;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d
  }	t_config;
 
 typedef struct s_stack
@@ -61,19 +66,23 @@ typedef struct s_stack
 	t_node			*top;
 	int				size;
     t_config *config;
+<<<<<<< HEAD
 
 }   t_stack;
 
 
 
+=======
+}   t_stack;
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d
 
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
 int	sb(t_stack *stack_b);
 int	ss(t_stack *stack_a, t_stack *stack_b);
 void	push(t_stack *dest, t_stack *src);
-int	pa(t_stack *b, t_stack *a);
-int	pb(t_stack *b, t_stack *a);
+int pa(t_stack *a, t_stack *b);
+int pb(t_stack *a, t_stack *b);
 int	ra(t_stack *a);
 int	rb(t_stack *b);
 int	rr(t_stack *a, t_stack *b);
@@ -101,5 +110,16 @@ void free_stack(t_stack *s);
 void	free_arr(char **arr);
 int     ft_atoi(const char *nptr);
 double compute_disorder(t_stack *a);
+void	init_config(t_config *cfg);
+t_strategy  get_strategy(char *arg);
+void    print_bench(t_stack *a);
+char    *measure_complexity(t_strategy used);
+char	*strategy_name(t_strategy strategy);
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+
+//we are here 
+>>>>>>> d32d49e5be2d9c02c7020a29c04025b5cf83035d

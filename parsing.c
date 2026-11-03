@@ -14,6 +14,7 @@
 void	free_tokens(char **token)
 {
 	int	j;
+	
 	if (!token)
 		return ;
 	j = 0;

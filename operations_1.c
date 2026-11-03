@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,36 +21,40 @@ void	swap(t_stack *test)
 	test->top = temp;
 }
 
-int	sa(t_stack *stack_a )
+int	sa(t_stack *stack_a)
 {
-	if (stack_a->size < 2)
+	if (!stack_a || stack_a->size < 2)
 		return (-1);
 	swap(stack_a);
-	a->config->sa++;
-	a->config->total_ops++;
+	stack_a->config->sa++;
+	stack_a->config->total_ops++;
 	write(1, "sa\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
 int	sb(t_stack *stack_b)
 {
-	if (stack_b->size < 2)
+	if (!stack_b || stack_b->size < 2)
 		return (-1);
 	swap(stack_b);
-	a->config->sb++;
-	a->config->total_ops++;
+	stack_b->config->sb++;
+	stack_b->config->total_ops++;
 	write(1, "sb\n", 3);
 	return (0); // at the beginning cuz we will declare a counter maybe ;)
 }
 
-int	ss(t_stack *stack_a, t_stack *stack_b)
+int ss(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size < 2 || stack_b->size < 2)
-		return (-1);
-	swap(stack_a);
-	swap(stack_b);
-	a->config->ss++;
-	a->config->total_ops++;
-	write(1, "ss\n", 3);
-	return (0); // at the beginning cuz we will declare a counter maybe ;)
+    if (!stack_a || !stack_b)
+        return (-1);
+    if (stack_a->size < 2 && stack_b->size < 2)
+        return (-1);
+    if (stack_a->size >= 2)
+        swap(stack_a);
+    if (stack_b->size >= 2)
+        swap(stack_b);
+    stack_a->config->ss++;
+    stack_a->config->total_ops++;
+    write(1, "ss\n", 3);
+    return (0);
 }
