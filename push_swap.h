@@ -58,8 +58,6 @@ typedef struct  s_bench
     int     rrr;
 }	t_bench;
 
-
-
 void	swap(t_stack *test);
 int	sa(t_stack *stack_a);
 int	sb(t_stack *stack_b);
@@ -96,4 +94,3 @@ int     ft_atoi(const char *nptr);
 double compute_disorder(t_stack *a);
 
 #endif
-

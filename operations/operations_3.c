@@ -33,7 +33,7 @@ int	rb(t_stack *b, t_bench *bench)
 	return (0);
 }
 
-int	rr(t_stack *a, t_stack *b, t_)
+int	rr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (!a || !b)
 		return (-1);
