@@ -49,19 +49,6 @@ double  compute_disorder(t_stack *a)
     return ((double)mistake / total_pairs);
 }
 
-char	*strategy_name(t_strategy strategy)
-{
-	if (strategy == SIMPLE)
-		return ("Simple");
-	if (strategy == MEDIUM)
-		return ("Medium");
-	if (strategy == COMPLEX)
-		return ("Complex");
-	if (strategy == ADAPTIVE)
-		return ("Adaptive");
-	return ("invalid");
-}
-
 void    print_bench(t_stack *a)
 {
     if (!a || !a->config)
