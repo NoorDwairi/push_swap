@@ -49,31 +49,16 @@ double  compute_disorder(t_stack *a)
     return ((double)mistake / total_pairs);
 }
 
-t_strategy	get_strategy(char *arg)
-{
-	if (!arg)
-		return (ADAPTIVE);
-	if (ft_strncmp(arg, "--simple", 9) == 0)
-		return (SIMPLE);
-	if (ft_strncmp(arg, "--medium", 9) == 0)
-		return (MEDIUM);
-	if (ft_strncmp(arg, "--complex", 10) == 0)
-		return (COMPLEX);
-	if (ft_strncmp(arg, "--adaptive", 11) == 0)
-		return (ADAPTIVE);
-	return (INVALID);
-}
-
 char	*strategy_name(t_strategy strategy)
 {
 	if (strategy == SIMPLE)
-		return ("simple");
+		return ("Simple");
 	if (strategy == MEDIUM)
-		return ("medium");
+		return ("Medium");
 	if (strategy == COMPLEX)
-		return ("complex");
+		return ("Complex");
 	if (strategy == ADAPTIVE)
-		return ("adaptive");
+		return ("Adaptive");
 	return ("invalid");
 }
 

@@ -70,13 +70,11 @@ int	parse_flags(char **argv, t_config *cfg)
     int i;
     
     i= 1;
-
-    
-        while(argv[i] && is_flag(argv[i]))
+	while(argv[i] && is_flag(argv[i]))
         {
-           if(!apply_strategy(argv[i],cfg))
+           if(!apply_flag(argv[i],cfg))
            return (-1);
            i++;
-    }
+		}
     return(i-1);
 }
