@@ -42,18 +42,15 @@ t_node *find_target(t_stack *a,t_stack * b)
  void find_target_position(t_stack *a, t_stack *b)
  {
     t_node * current;
-    
-    
+
     if(!a || !b || !b->top)
         return;
         current = a ->top;
-       
-
         while (current)
         {
             
         }
-    }
+}
 
 void sort_three( t_stack * a)
 {
@@ -64,17 +61,49 @@ void sort_three( t_stack * a)
     if(max_node ->rank < a->top ->next->rank)
         max_node = a->top ->next;
 
-     if(max_node ->rank < a->top ->next->next->rank)
-       max_node = a->top ->next->next->rank;
-       if (max_node == a->top)
+    if(max_node ->rank < a->top ->next->next->rank)
+       max_node = a->top ->next->next;
+    if (max_node == a->top)
        ra(a);
-       else if (max_node ==a->top->next)
+    else if (max_node ==a->top->next)
        rra(a);
-       if (a->top->rank > a->top->next->rank)
+    if (a->top->rank > a->top->next->rank)
 		sa(a);
 }
+void    find_target_position(t_stack *a, t_stack *b)
+{
+    t_node *target;
+    while (b->next)
+    {
+        if()
+        b = b->next;
+    }
+}
+
+bool    is_sorted(t_stack *a)
+{
+    if (!a || !a->top)
+        return (true);
+    t_node *current;
+    current = a->top;
+    while(current->next)
+    {
+        if (current->rank > current->next->rank)
+            return(false);
+        current = current->next;
+    }
+    return(true);
+}
+
 void    simple_sort(t_stack *a, t_stack *b)
 {
+    if (is_sorted(a))
+        return;
+    if (a->size <= 3)
+    {
+        sort_three(a);
+        return ;
+    }
     pb(a, b);
     pb(a, b);
     //b->size >= 2 && in the condition below is for checking weather I am trying to access a valid nodes 
@@ -85,9 +114,9 @@ void    simple_sort(t_stack *a, t_stack *b)
         //|-- Find target position
         find_target_position(a, b);
         //|-- Calculate rotation costs
-        calculate_rotation_cost(a, b);
+        chosen = calculate_rotation_cost(a, b);
         //|-- Find cheapest move
-        find_cheapest_move(a, b);
+        find_cheapest_move(a, b, chosen);
         //|-- Execute cheapest move
         execute_move(a, b);
     }
@@ -96,3 +125,6 @@ void    simple_sort(t_stack *a, t_stack *b)
     //rotate a until the smallest element is at the top
     rotate_min_to_top(a);
 }
+if(a->size <= 3)
+    sort_three(a);
+
