@@ -19,6 +19,60 @@
 //move_back_to_a()
 //rotate_min_to_top()
 
+t_node *find_target(t_stack *a,t_stack * b)
+{
+    t_node *compare;
+    t_node *target;
+    t_node *max_node;
+    if(!a || !b || !b->top)
+        return;
+         target = NULL;
+        compare = b->top;
+        max_node = b->top;
+        while(compare)
+        {
+            if(max_node -> rank < compare ->rank)
+            max_node=compare;
+
+        }
+
+}
+
+
+ void find_target_position(t_stack *a, t_stack *b)
+ {
+    t_node * current;
+    
+    
+    if(!a || !b || !b->top)
+        return;
+        current = a ->top;
+       
+
+        while (current)
+        {
+            
+        }
+    }
+
+void sort_three( t_stack * a)
+{
+    t_node *max_node;
+    if(!a || a-> size != 3)
+    return;
+    max_node = a-> top;
+    if(max_node ->rank < a->top ->next->rank)
+        max_node = a->top ->next;
+
+     if(max_node ->rank < a->top ->next->next->rank)
+       max_node = a->top ->next->next->rank;
+       if (max_node == a->top)
+       ra(a);
+       else if (max_node ==a->top->next)
+       rra(a);
+       if (a->top->rank > a->top->next->rank)
+		sa(a);
+}
 void    simple_sort(t_stack *a, t_stack *b)
 {
     pb(a, b);
