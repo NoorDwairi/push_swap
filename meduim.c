@@ -13,29 +13,71 @@
 
 //i will use a chunk based sorting
 
+int isqrt(int size)// the chunk size 
+{
+    int i;
+    i =0;
+    while ((i + 1) * (i +1)<=n)
+    i++;
+    return(i);
+}
+
 int chunk_size_calculator(int size )
 {
-    int chunk_size;
-    if (size <= 100)
-    chunk_size = size / 5;
-    else 
-    chunk_size = size / 11;
+    int chunk;
+    chunk = isqrt(size);
 
-    if (chunk_size < 1)
-    chunk_size = 1;
-    return (chunk_size);
+    if (chunk < 1)
+    chunk = 1;
+    
+    return (chunk);
     
 }
 
 bool push_or_rotate(t_stack *a, t_stack *b,int limit)
 {
+    if(a->top->rank < limit)
+    {
+        pb(a,b);
+        return(1);
+    }
+    ra(a);
+    return(0); 
+
+}
+void push_chunks_to_b(t_stack *a, t_stack *b , int chunck_size)
+{
+    int pushed;
+    int limit ;
+   
+    
+    if(!a || !b || chunck_size <= 0)
+    return;
+
+    limit=chunck_size;
+    pushed =0;
+    while (a->top)
+    {
+        if(push_or_rotate(a,b,limit) == 1)
+        pushed++;
+        if(pushed == chunck_size)
+        {
+            limit +=chunck_size;
+            pushed=0;
+        }
+        
+        
+
+    }
+    
     
 }
+/*
 void push_chunks_to_b(t_stack *a, t_stack *b , int chunck_size)
 {
     int min_chunk;
     int max_chunck;
-    int pushed_count;
+    
     
     if(!a || !b)
     return;
@@ -65,5 +107,5 @@ void push_chunks_to_b(t_stack *a, t_stack *b , int chunck_size)
         }
     }
 }
-
+*/
 
