@@ -70,14 +70,49 @@ void sort_three( t_stack * a)
     if (a->top->rank > a->top->next->rank)
 		sa(a);
 }
-void    find_target_position(t_stack *a, t_stack *b)
+
+t_node  *find_target_position(t_stack *b, int rank)
 {
+    t_node *current;
     t_node *target;
-    while (b->next)
+    t_node *max_node;
+    
+    if (!b || !b->top)
+        return (NULL);
+    current = b->top;
+    target = NULL;
+    max_node = current;
+    while(current)
     {
-        if()
-        b = b->next;
+        if(current->rank > max_node->rank)
+            max_node= current;
+        if(current->rank > rank)
+            if(!target || current->rank < target->rank)
+                target = current;
+        current = current->next;
     }
+    if (target)
+        return (target);
+    return (max_node);
+}
+
+int     get_position(t_stack *b, t_node *target)
+{
+    t_node *current;
+    int pos;
+
+    pos = 0;
+    if(!b || !target || !b->top)
+        return(-1);
+    current = b->top ;
+    while(current)
+    {
+        if (target->value == current->value && target->rank == current->rank)
+            return(pos);
+        current = current->next;
+        pos++;
+    }
+    return(-1);
 }
 
 bool    is_sorted(t_stack *a)
@@ -97,6 +132,9 @@ bool    is_sorted(t_stack *a)
 
 void    simple_sort(t_stack *a, t_stack *b)
 {
+    t_node *target;
+    int pos;
+    
     if (is_sorted(a))
         return;
     if (a->size <= 3)
@@ -112,9 +150,10 @@ void    simple_sort(t_stack *a, t_stack *b)
     while(a->size > 3)
     {
         //|-- Find target position
-        find_target_position(a, b);
+        target = find_target_position(a, b);
+        pos = get_position(b,target);
         //|-- Calculate rotation costs
-        chosen = calculate_rotation_cost(a, b);
+        calculate_rotation_cost(a, b);
         //|-- Find cheapest move
         find_cheapest_move(a, b, chosen);
         //|-- Execute cheapest move

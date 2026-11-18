@@ -73,4 +73,3 @@ int find_max_pos(t_stack *b)
         pa(a,b);
     }
 }
-

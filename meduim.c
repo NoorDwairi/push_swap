@@ -31,7 +31,6 @@ int chunk_size_calculator(int size )
     chunk = 1;
     
     return (chunk);
-    
 }
 
 bool push_or_rotate(t_stack *a, t_stack *b,int limit)
