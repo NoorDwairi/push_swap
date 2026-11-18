@@ -21,13 +21,56 @@ int find_max_pos(t_stack *b)
     pos = 0;
     current = b->top;
     max_rank = b->top->rank;
+    max_pos=0;
 
     while (current)
     {
-        if(current->rank < current->next->rank)
-        max_rank = current ->next ->rank;
-        max_pos =??;
+        if(current->rank > max_rank)
+        {
+        max_rank = current->rank;
+        max_pos =pos;
+        }
+        pos++;
         current = current ->next;
     }
     return(max_pos);
 }
+ void push_to_top_b(t_stack *b)
+ {
+    int	pos;
+	int	count;
+
+	pos = find_max_pos(b);
+	if (pos <= b->size / 2)
+	{
+		count = pos;
+		while (count > 0)
+		{
+			rb(b);
+			count--;
+		}
+	}
+	else
+	{
+		count = b->size - pos;
+		while (count > 0)
+		{
+			rrb(b);
+			count--;
+		}
+	}
+}
+
+ void push_back_to_a(t_stack *a, t_stack *b)
+{
+    int chunk_size;
+
+    if(!a || !b)
+    return ;
+    while (b->top)
+    {
+        push_to_top_b(b);
+        pa(a,b);
+    }
+}
+

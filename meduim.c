@@ -17,7 +17,7 @@ int isqrt(int size)// the chunk size
 {
     int i;
     i =0;
-    while ((i + 1) * (i +1)<=n)
+    while ((i + 1) * (i +1) <= size)
     i++;
     return(i);
 }
@@ -65,47 +65,16 @@ void push_chunks_to_b(t_stack *a, t_stack *b , int chunck_size)
             limit +=chunck_size;
             pushed=0;
         }
-        
-        
-
     }
-    
-    
 }
-/*
-void push_chunks_to_b(t_stack *a, t_stack *b , int chunck_size)
+
+void medium_sort(t_stack *a , t_stack *b)
 {
-    int min_chunk;
-    int max_chunck;
-    
-    
-    if(!a || !b)
-    return;
-    pushed_count=0;
-    min_chunk =0;
-    max_chunck = chunck_size;
-    while (a->top)
-    {
-        if( a->top->rank > min_chunk && a->top -> rank <= max_chunck)
-        {
-            pb(a);
-            pushed_count++;
-        }
-            else if(current->rank < min_chunk)
-        {
-            pb(b);
-            rb(b);
-            pushed_count++;
-        }
-        else
-        ra(a);
-        current = current ->next;
-        if(pushed_count > chunck_size)
-        {
-            min_chunk = max_chunck;
-            max_chunck +=chunck_size; 
-        }
-    }
-}
-*/
+    int chunck_size;
+    if (!a || !b || a->size < 2)
+    return ;
 
+    chunk_size =chunk_size_calculator(a->size);
+    push_chunks_to_b(a,b,chunck_size);
+    push_back_to_a(a,b);
+}
