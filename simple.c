@@ -6,7 +6,7 @@
 /*   By: dlababne <deema.lababneh@learner.42.tech>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 14:54:54 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/21 20:05:07 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/21 22:51:44 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,25 +98,6 @@ bool    is_sorted(t_stack *a)
     }
     return(true);
 }
- 
-int     calculate_rotation_cost(t_stack *a, t_stack *b)
-{
-    t_node *current;
-    t_node *target;
-    int pos;
-
-    if (!a || !b || !a->top || !b->top)
-        return(-1);
-    current = a->top;
-    while(current)
-    {
-        target = find_target_position(b, current->rank);
-        pos_a = get_position(a, current);
-        pos_b = get_position(b, target);
-        current = current->next;
-    }
-    return(0);
-}
 
 int max(int a, int b)
 {
@@ -148,8 +129,7 @@ t_node *find_cheapest_move(t_stack *a, t_stack *b)
     return (cheapest_node);
 }
 
-static void rotate_forward(t_stack *a, t_stack *b,
-        int pos_a, int pos_b)
+void rotate_forward(t_stack *a, t_stack *b, int pos_a, int pos_b)
 {
     while (pos_a > 0 && pos_b > 0)
     {
@@ -163,8 +143,7 @@ static void rotate_forward(t_stack *a, t_stack *b,
         rb(b);
 }
 
-static void rotate_backward(t_stack *a, t_stack *b,
-        int back_a, int back_b)
+void rotate_backward(t_stack *a, t_stack *b, int back_a, int back_b)
 {
     while (back_a > 0 && back_b > 0)
     {
@@ -178,9 +157,13 @@ static void rotate_backward(t_stack *a, t_stack *b,
         rrb(b);
 }
 
-static void rotate_mixed(t_stack *a, t_stack *b,
-        int pos_a, int pos_b, int back_a, int back_b)
+void rotate_mixed(t_stack *a, t_stack *b, int pos_a, int pos_b)
 {
+    int back_a;
+    int back_b;
+
+    back_a = a->size - pos_a;
+    back_b = b->size - pos_b;
     if (pos_a <= back_a)
     {
         while (pos_a-- > 0)
@@ -205,9 +188,13 @@ void execute_move(t_stack *a, t_stack *b, t_node *candidate)
     int     back_a;
     int     back_b;
 
+    if (!a || !b || !candidate || !a->top || !b->top)
+        return ;
     target = find_target_position(b, candidate->rank);
     pos_a = get_position(a, candidate);
     pos_b = get_position(b, target);
+    if (!target || pos_a < 0 || pos_b < 0)
+    return ;
     back_a = (pos_a == 0) ? 0 : a->size - pos_a;
     back_b = (pos_b == 0) ? 0 : b->size - pos_b;
     if (pos_a <= back_a && pos_b <= back_b)
@@ -215,19 +202,20 @@ void execute_move(t_stack *a, t_stack *b, t_node *candidate)
     else if (pos_a > back_a && pos_b > back_b)
         rotate_backward(a, b, back_a, back_b);
     else
-        rotate_mixed(a, b, pos_a, pos_b, back_a, back_b);
-    pb(a, b);
+        rotate_mixed(a, b, pos_a, pos_b);
+    if(a->top == candidate && b->top == target)
+        pb(a, b);
 }
 
 ////////calculate the cheapest rotations needed to bring the target and candidate to the top of stacks a and b
-static int	update_min_cost(int cost, int min_cost)
+int	update_min_cost(int cost, int min_cost)
 {
 	if (cost < min_cost)
 		return (cost);
 	return (min_cost);
 }
 
-static int calculate_rotation_cases(t_stack *a, t_stack *b, int pos_a, int pos_b, int *best_route)
+int calculate_rotation_cases(t_stack *a, t_stack *b, int pos_a, int pos_b)
 {
     int cost;
     int min_cost;
@@ -257,7 +245,7 @@ static int calculate_rotation_cases(t_stack *a, t_stack *b, int pos_a, int pos_b
 	return (update_min_cost(cost, min_cost));
 }
 
-int	calculate_rotation_cost(t_stack *a, t_stack *b, t_node *candidate, int *best_route)
+int	calculate_rotation_cost(t_stack *a, t_stack *b, t_node *candidate)
 {
 	t_node	*target;
 	int		pos_a;
@@ -280,7 +268,6 @@ int	calculate_rotation_cost(t_stack *a, t_stack *b, t_node *candidate, int *best
 void    simple_sort(t_stack *a, t_stack *b)
 {
     t_node *target;
-    int pos;
 
     if (is_sorted(a))
         return;
