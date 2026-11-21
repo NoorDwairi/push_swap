@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: dlababne <deema.lababneh@learner.42.tech>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 14:54:54 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/07 14:54:57 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/19 21:22:15 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 //simple_sort()
 //find_target_position()
@@ -19,38 +20,6 @@
 //move_back_to_a()
 //rotate_min_to_top()
 
-t_node *find_target(t_stack *a,t_stack * b)
-{
-    t_node *compare;
-    t_node *target;
-    t_node *max_node;
-    if(!a || !b || !b->top)
-        return;
-         target = NULL;
-        compare = b->top;
-        max_node = b->top;
-        while(compare)
-        {
-            if(max_node -> rank < compare ->rank)
-            max_node=compare;
-
-        }
-
-}
-
-
- void find_target_position(t_stack *a, t_stack *b)
- {
-    t_node * current;
-
-    if(!a || !b || !b->top)
-        return;
-        current = a ->top;
-        while (current)
-        {
-            
-        }
-}
 
 void sort_three( t_stack * a)
 {
@@ -86,8 +55,8 @@ t_node  *find_target_position(t_stack *b, int rank)
     {
         if(current->rank > max_node->rank)
             max_node= current;
-        if(current->rank > rank)
-            if(!target || current->rank < target->rank)
+        if(current->rank < rank)
+            if(!target || current->rank > target->rank)
                 target = current;
         current = current->next;
     }
@@ -129,6 +98,25 @@ bool    is_sorted(t_stack *a)
     }
     return(true);
 }
+ 
+int     calculate_rotation_cost(t_stack *a, t_stack *b)
+{
+    t_node *current;
+    t_node *target;
+    int pos;
+
+    if (!a || !b || !a->top || !b->top)
+        return(-1);
+    current = a->top;
+    while(current)
+    {
+        target = find_target_position(b, current->rank);
+        pos_a = get_position(a, current);
+        pos_b = get_position(b, target);
+        current = current->next;
+    }
+    return(0);
+}
 
 void    simple_sort(t_stack *a, t_stack *b)
 {
@@ -147,11 +135,9 @@ void    simple_sort(t_stack *a, t_stack *b)
     //b->size >= 2 && in the condition below is for checking weather I am trying to access a valid nodes 
     if (b->size >= 2 && b->top->rank < b->top->next->rank)
         rb(b);
-    while(a->size > 3)
+    while(a->size > 3)  
     {
         //|-- Find target position
-        target = find_target_position(a, b);
-        pos = get_position(b,target);
         //|-- Calculate rotation costs
         calculate_rotation_cost(a, b);
         //|-- Find cheapest move
