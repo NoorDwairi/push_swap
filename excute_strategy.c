@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   excute_strategy.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/22 12:37:51 by dlababne          #+#    #+#             */
+/*   Updated: 2026/11/22 12:38:06 by dlababne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 char	*strategy_name(t_strategy strategy)
 {
@@ -11,7 +22,6 @@ char	*strategy_name(t_strategy strategy)
 		return ("Adaptive");
 	return ("Invalid");
 }
-
 
 int	apply_strategy(char *ch, t_config *cfg)
 {

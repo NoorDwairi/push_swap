@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_2.c                                       :+:      :+:    :+:   */
+/*   validate_and_freestack.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 11:41:14 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/28 10:50:26 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:39:19 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <push_swap.h>
@@ -34,19 +34,19 @@ bool	validate_duplicate(char **arr)
 	}
 	return (1);
 }
-void free_stack(t_stack *s)
+
+void	free_stack(t_stack *s)
 {
-	t_node *current;
-	t_node *next;
+	t_node	*current;
+	t_node	*next;
 
 	current = s->top;
-	while(current)
+	while (current)
 	{
-		next = current ->next;
+		next = current->next;
 		free(current);
 		current = next;
 	}
 	s->top = NULL;
 	s->size = 0;
 }
-

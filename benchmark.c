@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 12:15:58 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/02 12:16:00 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/11/22 12:41:04 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -31,15 +31,14 @@ void	init_config(t_config *cfg)
 	cfg->bench = false;
 }
 
-bool is_flag(char *s)
+bool	is_flag(char *s)
 {
-    if(!s)
-    return (0);
-        if(s[0] == '-' && s[1] =='-')
-        return (true);
-        return (false);
+	if (!s)
+		return (0);
+	if (s[0] == '-' && s[1] == '-')
+		return (true);
+	return (false);
 }
-
 
 int	apply_flag(char *ch, t_config *cfg)
 {
@@ -53,14 +52,14 @@ int	apply_flag(char *ch, t_config *cfg)
 
 int	parse_flags(char **argv, t_config *cfg)
 {
-    int i;
-    
-    i= 1;
-	while(argv[i] && is_flag(argv[i]))
-        {
-           if(!apply_flag(argv[i],cfg))
-           return (-1);
-           i++;
-		}
-    return(i-1);
+	int	i;
+
+	i = 1;
+	while (argv[i] && is_flag(argv[i]))
+	{
+		if (!apply_flag(argv[i], cfg))
+			return (-1);
+		i++;
+	}
+	return (i - 1);
 }

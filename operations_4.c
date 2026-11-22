@@ -63,9 +63,9 @@ int	rrr(t_stack *a, t_stack *b)
 	if (a->size < 2 && b->size < 2)
 		return (-1);
 	if (a->size >= 2)
-    	reverse_rotate(a);
+		reverse_rotate(a);
 	if (b->size >= 2)
-    	reverse_rotate(b);	
+		reverse_rotate(b);
 	a->config->rrr++;
 	a->config->total_ops++;
 	write(1, "rrr\n", 4);

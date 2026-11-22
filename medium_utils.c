@@ -11,33 +11,32 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int find_max_pos(t_stack *b)
+int	find_max_pos(t_stack *b)
 {
-    int max_pos;
-    int max_rank;
-    int pos;
-    t_node *current;
+	int		max_pos;
+	int		max_rank;
+	int		pos;
+	t_node	*current;
 
-    pos = 0;
-    current = b->top;
-    max_rank = b->top->rank;
-    max_pos=0;
-
-    while (current)
-    {
-        if(current->rank > max_rank)
-        {
-        max_rank = current->rank;
-        max_pos =pos;
-        }
-        pos++;
-        current = current ->next;
-    }
-    return(max_pos);
+	pos = 0;
+	current = b->top;
+	max_rank = b->top->rank;
+	max_pos = 0;
+	while (current)
+	{
+		if (current->rank > max_rank)
+		{
+			max_rank = current->rank;
+			max_pos = pos;
+		}
+		pos++;
+		current = current->next;
+	}
+	return (max_pos);
 }
- void push_to_top_b(t_stack *b)
- {
-    int	pos;
+void	push_to_top_b(t_stack *b)
+{
+	int	pos;
 	int	count;
 
 	pos = find_max_pos(b);
@@ -61,15 +60,15 @@ int find_max_pos(t_stack *b)
 	}
 }
 
- void push_back_to_a(t_stack *a, t_stack *b)
+void	push_back_to_a(t_stack *a, t_stack *b)
 {
-    int chunk_size;
+	int chunk_size;
 
-    if(!a || !b)
-    return ;
-    while (b->top)
-    {
-        push_to_top_b(b);
-        pa(a,b);
-    }
+	if (!a || !b)
+		return ;
+	while (b->top)
+	{
+		push_to_top_b(b);
+		pa(a, b);
+	}
 }

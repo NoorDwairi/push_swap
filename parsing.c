@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 08:56:30 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/28 14:42:59 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:11:19 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -14,7 +14,7 @@
 void	free_tokens(char **token)
 {
 	int	j;
-	
+
 	if (!token)
 		return ;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 09:32:38 by dlababne          #+#    #+#             */
-/*   Updated: 2026/10/21 10:45:10 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:47:57 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,7 +28,7 @@ int	rb(t_stack *b)
 		return (-1);
 	rotate(b);
 	b->config->rb++;
-    b->config->total_ops++;
+	b->config->total_ops++;
 	write(1, "rb\n", 3);
 	return (0);
 }
@@ -40,12 +40,12 @@ int	rr(t_stack *a, t_stack *b)
 	if (a->size < 2 && b->size < 2)
 		return (-1);
 	if (a->size >= 2)
-    	rotate(a);
+		rotate(a);
 	if (b->size >= 2)
-    	rotate(b);
+		rotate(b);
 	a->config->rr++;
 	a->config->total_ops++;
-	write(1,"rr\n",3);
+	write(1, "rr\n", 3);
 	return (0);
 }
 

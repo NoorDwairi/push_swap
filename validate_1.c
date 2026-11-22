@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 10:22:25 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/28 10:22:27 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/11/22 12:40:24 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -17,7 +17,7 @@ bool	validate_sign(char *arr)
 
 	i = 0;
 	if (!arr || !arr[0])
-    	return (0);
+		return (0);
 	if (arr[i] == '-' || arr[i] == '+')
 	{
 		if (!(arr[i + 1] >= '0' && arr[i + 1] <= '9'))

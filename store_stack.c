@@ -21,14 +21,15 @@ t_node	*new_node(int value)
 		return (NULL);
 	node->value = value;
 	node->next = NULL;
-	node -> rank = 0;
+	node->rank = 0;
 	return (node);
 }
 
-void 	add_node_back(t_stack *stack, t_node *node)
+void	add_node_back(t_stack *stack, t_node *node)
 {
 	t_node	*last;
-	if(!stack || !node)
+
+	if (!stack || !node)
 		return ;
 	if (!stack->top)
 		stack->top = node;
@@ -70,4 +71,3 @@ int	build_stack(t_stack *stack, char **arr)
 	}
 	return (1);
 }
-
