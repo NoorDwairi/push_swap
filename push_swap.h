@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
+/*   By: dlababne <deema.lababneh@learner.42.tech>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 08:56:08 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/22 16:08:05 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/23 02:50:03 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -122,5 +123,8 @@ void				medium_sort(t_stack *a, t_stack *b);
 t_node				*find_target_position(t_stack *b, int rank);
 t_node				*find_target_in_a(t_stack *a, int rank);
 t_node				*find_cheapest_move(t_stack *a, t_stack *b);
-
+void	complex_sort(t_stack *a, t_stack *b);
+void	radix_pass(t_stack *a, t_stack *b, int bit);
+int		get_max_bits(t_stack *a);
+bool	is_bit_zero(int rank, int bit);
 #endif
