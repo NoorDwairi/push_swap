@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 10:22:25 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/22 12:40:24 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 15:51:31 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -37,7 +37,9 @@ bool	validate_sign(char *arr)
 bool	validate_digits(char *arr)
 {
 	int	i;
-
+	
+	if (!arr || !arr[0])
+    		return (0);
 	i = 0;
 	if (arr[i] == '-' || arr[i] == '+')
 		i = 1;
@@ -83,6 +85,8 @@ int	validation(char **arr)
 	i = 0;
 	while (arr[i])
 	{
+		if (is_flag(arr[i]))
+			return (write(2, "Error\n", 6), 0);
 		check = validate_sign(arr[i]);
 		if (!check)
 			return (write(2, "Error\n", 6), 0);

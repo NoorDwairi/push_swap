@@ -6,10 +6,11 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 13:07:14 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/22 13:07:22 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 16:09:21 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include <stdio.h>
 
 void	assign_ranks(t_stack *a)
 {
@@ -66,13 +67,15 @@ void	print_bench(t_stack *a)
 {
 	if (!a || !a->config)
 		return ;
-	printf(stderr, "[bench] disorder: %.2f%%\n", a->config->disorder * 100);
-	printf(stderr, "[bench] strategy: %s\n",
+	fprintf(stderr, "[bench] disorder: %.2f%%\n",
+		a->config->disorder * 100);
+	fprintf(stderr, "[bench] strategy: %s\n",
 		strategy_name(a->config->selected));
-	printf("[bench] total_ops: %d\n", a->config->total_ops);
-	printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", a->config->sa,
-		a->config->sb, a->config->ss, a->config->pa, a->config->pb);
-	printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	fprintf(stderr, "[bench] total_ops: %d\n", a->config->total_ops);
+	fprintf(stderr, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+		a->config->sa, a->config->sb, a->config->ss,
+		a->config->pa, a->config->pb);
+	fprintf(stderr, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		a->config->ra, a->config->rb, a->config->rr, a->config->rra,
 		a->config->rrb, a->config->rrr);
 }

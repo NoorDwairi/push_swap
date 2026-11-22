@@ -6,10 +6,9 @@
 /*   By: dlababne <deema.lababneh@learner.42.tech>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 14:54:54 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/22 13:09:42 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:25:52 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	sort_three(t_stack *a)

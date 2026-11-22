@@ -6,11 +6,13 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 08:56:08 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/03 12:58:59 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 16:08:05 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "libft.h"
 
 # include <limits.h>
 # include <stdbool.h>
@@ -25,8 +27,6 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-// I add a struct to check weather there is a flag stands for chosen strategy
-// or to use the default one <ADAPTIVE>
 typedef enum s_strategy
 {
 	SIMPLE,
@@ -103,5 +103,24 @@ t_strategy			get_strategy(char *arg);
 void				print_bench(t_stack *a);
 char				*measure_complexity(t_strategy used);
 char				*strategy_name(t_strategy strategy);
+bool				is_flag(char *s);
+int					apply_flag(char *ch, t_config *cfg);
+int					parse_flags(char **argv, t_config *cfg);
+int					apply_strategy(char *ch, t_config *cfg);
+
+int					get_position(t_stack *b, t_node *target);
+int					calculate_rotation_cost(t_stack *a, t_stack *b,
+						t_node *candidate);
+int					calculate_rotation_cases(t_stack *a, t_stack *b,
+						int pos_a, int pos_b);
+void				execute_move(t_stack *a, t_stack *b,
+						t_node *candidate);
+void				move_back_to_a(t_stack *a, t_stack *b);
+void				rotate_min_to_top(t_stack *a);
+void				push_back_to_a(t_stack *a, t_stack *b);
+void				medium_sort(t_stack *a, t_stack *b);
+t_node				*find_target_position(t_stack *b, int rank);
+t_node				*find_target_in_a(t_stack *a, int rank);
+t_node				*find_cheapest_move(t_stack *a, t_stack *b);
 
 #endif

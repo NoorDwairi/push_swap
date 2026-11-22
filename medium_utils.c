@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 17:39:54 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/17 17:39:57 by ndwairi          ###   ########.fr       */
+/*   Updated: 2026/11/22 16:19:40 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -62,8 +62,6 @@ void	push_to_top_b(t_stack *b)
 
 void	push_back_to_a(t_stack *a, t_stack *b)
 {
-	int chunk_size;
-
 	if (!a || !b)
 		return ;
 	while (b->top)

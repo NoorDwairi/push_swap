@@ -6,9 +6,10 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 13:00:14 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/22 13:00:16 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 15:56:48 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 void	rotate_forward(t_stack *a, t_stack *b, int pos_a, int pos_b)
 {
@@ -72,9 +73,11 @@ void	execute_move(t_stack *a, t_stack *b, t_node *candidate)
 	if (!a || !b || !candidate || !a->top || !b->top)
 		return ;
 	target = find_target_position(b, candidate->rank);
+	if(!target)
+		return;
 	pos_a = get_position(a, candidate);
 	pos_b = get_position(b, target);
-	if (!target || pos_a < 0 || pos_b < 0)
+	if (pos_a < 0 || pos_b < 0)
 		return ;
 	back_a = (pos_a == 0) ? 0 : a->size - pos_a;
 	back_b = (pos_b == 0) ? 0 : b->size - pos_b;

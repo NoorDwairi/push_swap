@@ -6,10 +6,10 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 11:41:14 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/22 12:39:19 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 16:02:40 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
 bool	validate_duplicate(char **arr)
 {

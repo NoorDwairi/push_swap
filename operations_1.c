@@ -6,7 +6,7 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 10:54:55 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/22 12:46:39 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 15:41:46 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -15,6 +15,8 @@ void	swap(t_stack *test)
 {
 	t_node	*temp;
 
+	if (!test || test->size < 2 || !test->top)
+	    return ;
 	temp = test->top->next;
 	test->top->next = temp->next;
 	temp->next = test->top;

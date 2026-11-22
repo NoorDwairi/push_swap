@@ -6,11 +6,10 @@
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 14:03:42 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/10/31 12:11:26 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:26:18 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-#include <stdlib.h>
 
 t_node	*new_node(int value)
 {

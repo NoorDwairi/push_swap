@@ -6,9 +6,10 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 13:00:03 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/22 13:00:06 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:25:39 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 int	max(int a, int b)
 {

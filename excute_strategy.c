@@ -9,6 +9,7 @@
 /*   Updated: 2026/11/22 12:38:06 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 char	*strategy_name(t_strategy strategy)
 {

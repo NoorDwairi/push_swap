@@ -6,9 +6,10 @@
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 13:03:02 by dlababne          #+#    #+#             */
-/*   Updated: 2026/11/22 13:03:49 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:26:05 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
 void	move_back_to_a(t_stack *a, t_stack *b)
 {
