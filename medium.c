@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   meduim.c                                           :+:      :+:    :+:   */
+/*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/16 13:12:58 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/22 16:21:45 by dlababne         ###   ########.fr       */
+/*   Created: 2026/11/18 16:34:05 by ndwairi           #+#    #+#             */
+/*   Updated: 2026/11/18 16:34:37 by ndwairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	isqrt(int size)
 {
 	int	i;
+
 	i = 0;
 	while ((i + 1) * (i + 1) <= size)
 		i++;
@@ -32,31 +34,37 @@ int	chunk_size_calculator(int size)
 
 bool	push_or_rotate(t_stack *a, t_stack *b, int limit)
 {
+	if (!a || !b || !a->top)
+		return (false);
 	if (a->top->rank < limit)
 	{
 		pb(a, b);
-		return (1);
+		return (true);
 	}
 	ra(a);
-	return (0);
+	return (false);
 }
 
 void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 {
 	int	pushed;
 	int	limit;
+	int	total_size;
 
 	if (!a || !b || chunk_size <= 0)
 		return ;
+	total_size = a->size;
 	limit = chunk_size;
 	pushed = 0;
 	while (a->top)
 	{
-		if (push_or_rotate(a, b, limit) == 1)
+		if (push_or_rotate(a, b, limit))
 			pushed++;
 		if (pushed == chunk_size)
 		{
 			limit += chunk_size;
+			if (limit > total_size)
+				limit = total_size;
 			pushed = 0;
 		}
 	}
@@ -65,6 +73,7 @@ void	push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size)
 void	medium_sort(t_stack *a, t_stack *b)
 {
 	int	chunk_size;
+
 	if (!a || !b || a->size < 2)
 		return ;
 	chunk_size = chunk_size_calculator(a->size);
