@@ -6,7 +6,7 @@
 /*   By: dlababne <deema.lababneh@learner.42.tech>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 08:56:08 by ndwairi           #+#    #+#             */
-/*   Updated: 2026/11/23 02:50:03 by dlababne         ###   ########.fr       */
+/*   Updated: 2026/11/23 12:43:08 by dlababne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-
 # include <limits.h>
 # include <stdbool.h>
 # include <stddef.h>
@@ -97,7 +96,6 @@ int					validation(char **arr);
 bool				validate_duplicate(char **arr);
 void				free_stack(t_stack *s);
 void				free_arr(char **arr);
-int					ft_atoi(const char *nptr);
 double				compute_disorder(t_stack *a);
 void				init_config(t_config *cfg);
 t_strategy			get_strategy(char *arg);
@@ -112,10 +110,9 @@ int					apply_strategy(char *ch, t_config *cfg);
 int					get_position(t_stack *b, t_node *target);
 int					calculate_rotation_cost(t_stack *a, t_stack *b,
 						t_node *candidate);
-int					calculate_rotation_cases(t_stack *a, t_stack *b,
-						int pos_a, int pos_b);
-void				execute_move(t_stack *a, t_stack *b,
-						t_node *candidate);
+int					calculate_rotation_cases(t_stack *a, t_stack *b, int pos_a,
+						int pos_b);
+void				execute_move(t_stack *a, t_stack *b, t_node *candidate);
 void				move_back_to_a(t_stack *a, t_stack *b);
 void				rotate_min_to_top(t_stack *a);
 void				push_back_to_a(t_stack *a, t_stack *b);
@@ -123,8 +120,22 @@ void				medium_sort(t_stack *a, t_stack *b);
 t_node				*find_target_position(t_stack *b, int rank);
 t_node				*find_target_in_a(t_stack *a, int rank);
 t_node				*find_cheapest_move(t_stack *a, t_stack *b);
-void	complex_sort(t_stack *a, t_stack *b);
-void	radix_pass(t_stack *a, t_stack *b, int bit);
-int		get_max_bits(t_stack *a);
-bool	is_bit_zero(int rank, int bit);
+void				complex_sort(t_stack *a, t_stack *b);
+void				radix_pass(t_stack *a, t_stack *b, int bit);
+int					get_max_bits(t_stack *a);
+bool				is_bit_zero(int rank, int bit);
+int					max(int a, int b);
+int					update_min_cost(int cost, int min_cost);
+void				rotate_forward(t_stack *a, t_stack *b, int pos_a,
+						int pos_b);
+void				rotate_backward(t_stack *a, t_stack *b, int back_a,
+						int back_b);
+void				rotate_mixed(t_stack *a, t_stack *b, int pos_a, int pos_b);
+int					isqrt(int size);
+int					chunk_size_calculator(int size);
+bool				push_or_rotate(t_stack *a, t_stack *b, int limit);
+void				push_chunks_to_b(t_stack *a, t_stack *b, int chunk_size);
+int					find_max_pos(t_stack *b);
+void				push_to_top_b(t_stack *b);
+
 #endif

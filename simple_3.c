@@ -73,14 +73,20 @@ void	execute_move(t_stack *a, t_stack *b, t_node *candidate)
 	if (!a || !b || !candidate || !a->top || !b->top)
 		return ;
 	target = find_target_position(b, candidate->rank);
-	if(!target)
-		return;
+	if (!target)
+		return ;
 	pos_a = get_position(a, candidate);
 	pos_b = get_position(b, target);
 	if (pos_a < 0 || pos_b < 0)
 		return ;
-	back_a = (pos_a == 0) ? 0 : a->size - pos_a;
-	back_b = (pos_b == 0) ? 0 : b->size - pos_b;
+	if (pos_a == 0)
+		back_a = 0;
+	else
+		back_a = a->size - pos_a;
+	if (pos_b == 0)
+		back_b = 0;
+	else
+		back_b = b->size - pos_b;
 	if (pos_a <= back_a && pos_b <= back_b)
 		rotate_forward(a, b, pos_a, pos_b);
 	else if (pos_a > back_a && pos_b > back_b)

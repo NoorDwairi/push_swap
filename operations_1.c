@@ -16,7 +16,7 @@ void	swap(t_stack *test)
 	t_node	*temp;
 
 	if (!test || test->size < 2 || !test->top)
-	    return ;
+		return ;
 	temp = test->top->next;
 	test->top->next = temp->next;
 	temp->next = test->top;

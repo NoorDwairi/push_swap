@@ -37,9 +37,9 @@ bool	validate_sign(char *arr)
 bool	validate_digits(char *arr)
 {
 	int	i;
-	
+
 	if (!arr || !arr[0])
-    		return (0);
+		return (0);
 	i = 0;
 	if (arr[i] == '-' || arr[i] == '+')
 		i = 1;
