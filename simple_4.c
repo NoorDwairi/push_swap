@@ -32,7 +32,7 @@ void	move_back_to_a(t_stack *a, t_stack *b)
 			while (pos++ < a->size)
 				rra(a);
 		}
-		pa(b, a);
+		pa(b, a);// here it shold be pa(a,b) ????
 	}
 }
 
