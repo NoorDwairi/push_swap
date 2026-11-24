@@ -77,29 +77,23 @@ bool	validate_overflow(char *arr)
 	return (1);
 }
 
+static bool	valid_token(char *s)
+{
+	return (validate_sign(s) && validate_digits(s) && validate_overflow(s));
+}
+
 int	validation(char **arr)
 {
 	int	i;
-	int	check;
 
 	i = 0;
 	while (arr[i])
 	{
-		if (is_flag(arr[i]))
-			return (write(2, "Error\n", 6), 0);
-		check = validate_sign(arr[i]);
-		if (!check)
-			return (write(2, "Error\n", 6), 0);
-		check = validate_digits(arr[i]);
-		if (!check)
-			return (write(2, "Error\n", 6), 0);
-		check = validate_overflow(arr[i]);
-		if (!check)
-			return (write(2, "Error\n", 6), 0);
+		if (is_flag(arr[i]) || !valid_token(arr[i]))
+			return (print_error(), 0);
 		i++;
 	}
-	check = validate_duplicate(arr);
-	if (!check)
-		return (write(2, "Error\n", 6), 0);
+	if (!validate_duplicate(arr))
+		return (print_error(), 0);
 	return (1);
 }

@@ -50,3 +50,8 @@ void	free_stack(t_stack *s)
 	s->top = NULL;
 	s->size = 0;
 }
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+}

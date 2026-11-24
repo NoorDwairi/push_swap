@@ -60,3 +60,15 @@ int	ss(t_stack *stack_a, t_stack *stack_b)
 	write(1, "ss\n", 3);
 	return (0);
 }
+
+void	push(t_stack *dest, t_stack *src)
+{
+	t_node	*temp;
+
+	temp = src->top;
+	src->top = src->top->next;
+	temp->next = dest->top;
+	dest->top = temp;
+	src->size--;
+	dest->size++;
+}

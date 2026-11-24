@@ -109,8 +109,9 @@ void	simple_sort(t_stack *a, t_stack *b)
 		sort_three(a);
 		return ;
 	}
-	pb(a, b);
-	pb(a, b);
+		pb(a, b);
+	if (a->size > 3)
+		pb(a, b);
 	if (b->size >= 2 && b->top->rank < b->top->next->rank)
 		rb(b);
 	while (a->size > 3)

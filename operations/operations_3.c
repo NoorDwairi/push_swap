@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations4.c                                      :+:      :+:    :+:   */
+/*   operations3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,6 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+
+int	pb(t_stack *a, t_stack *b)
+{
+	if (!a || !b || !a->top)
+		return (-1);
+	push(b, a);
+	write(1, "pb\n", 3);
+	a->config->pb++;
+	a->config->total_ops++;
+	return (0);
+}
 
 int	reverse_rotate(t_stack *test)
 {

@@ -22,7 +22,7 @@ void	radix_pass(t_stack *a, t_stack *b, int bit)
 	while (size > 0)
 	{
 		if (is_bit_zero(a->top->rank, bit))
-			pb(b, a);
+			pb(a,b);
 		else
 			ra(a);
 		size--;
@@ -31,7 +31,7 @@ void	radix_pass(t_stack *a, t_stack *b, int bit)
 		return ;
 	while (b->size > 0)
 	{
-		pa(b, a);
+		pa(a,b);
 	}
 }
 
