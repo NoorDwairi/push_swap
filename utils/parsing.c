@@ -81,30 +81,25 @@ char	**set_arr(char **argv)
 {
 	char	**arr;
 	char	**temp_res;
-	int		count_elements;
 	int		i;
 	int		k;
 
-	count_elements = count_elements_updated(argv);
-	if (count_elements <= 0)
+	k = count_elements_updated(argv);
+	if (k <= 0)
 		return (NULL);
-	arr = malloc(sizeof(char *) * (count_elements + 1));
-	i = 1;
-	k = 0;
+	arr = ft_calloc(k + 1, sizeof(char *));
 	if (!arr)
 		return (NULL);
+	i = 1;
+	k = 0;
 	while (argv[i])
 	{
 		temp_res = ft_split(argv[i], ' ');
 		if (!temp_res)
-		{
-			arr[k] = NULL;
 			return (free_tokens(arr), NULL);
-		}
 		k = set_numbers(arr, temp_res, k);
 		free(temp_res);
 		i++;
 	}
-	arr[k] = NULL;
 	return (arr);
 }

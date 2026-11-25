@@ -27,32 +27,22 @@ int	update_min_cost(int cost, int min_cost)
 
 int	calculate_rotation_cases(t_stack *a, t_stack *b, int pos_a, int pos_b)
 {
-	int	cost;
+	int	back_a;
+	int	back_b;
 	int	min_cost;
 
 	if (pos_a < 0 || pos_b < 0)
 		return (-1);
-	if (pos_a > pos_b)
-		min_cost = pos_a;
-	else
-		min_cost = pos_b;
-	if (pos_a == 0)
-		cost = 0;
-	else
-		cost = a->size - pos_a;
-	if (pos_b != 0 && b->size - pos_b > cost)
-		cost = b->size - pos_b;
-	min_cost = update_min_cost(cost, min_cost);
-	if (pos_b == 0)
-		cost = pos_a;
-	else
-		cost = pos_a + (b->size - pos_b);
-	min_cost = update_min_cost(cost, min_cost);
-	if (pos_a == 0)
-		cost = pos_b;
-	else
-		cost = (a->size - pos_a) + pos_b;
-	return (update_min_cost(cost, min_cost));
+	back_a = 0;
+	back_b = 0;
+	if (pos_a != 0)
+		back_a = a->size - pos_a;
+	if (pos_b != 0)
+		back_b = b->size - pos_b;
+	min_cost = max(pos_a, pos_b);
+	min_cost = update_min_cost(max(back_a, back_b), min_cost);
+	min_cost = update_min_cost(pos_a + back_b, min_cost);
+	return (update_min_cost(back_a + pos_b, min_cost));
 }
 
 int	calculate_rotation_cost(t_stack *a, t_stack *b, t_node *candidate)

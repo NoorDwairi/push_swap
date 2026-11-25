@@ -92,36 +92,16 @@ int	get_position(t_stack *b, t_node *target)
 
 void	simple_sort(t_stack *a, t_stack *b)
 {
-	t_node	*target;
-
-	if (!a || !b || !a->top)
-		return ;
-	if (is_sorted(a))
+	if (!a || !b || !a->top || is_sorted(a))
 		return ;
 	if (a->size == 2)
-	{
-		if (a->top->rank > a->top->next->rank)
-			sa(a);
-		return ;
-	}
-	if (a->size == 3)
+		sa(a);
+	else if (a->size == 3)
+		sort_three(a);
+	else if (fill_stack_b(a, b))
 	{
 		sort_three(a);
-		return ;
+		move_back_to_a(a, b);
+		rotate_min_to_top(a);
 	}
-		pb(a, b);
-	if (a->size > 3)
-		pb(a, b);
-	if (b->size >= 2 && b->top->rank < b->top->next->rank)
-		rb(b);
-	while (a->size > 3)
-	{
-		target = find_cheapest_move(a, b);
-		if (!target)
-			return ;
-		execute_move(a, b, target);
-	}
-	sort_three(a);
-	move_back_to_a(a, b);
-	rotate_min_to_top(a);
 }

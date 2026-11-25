@@ -67,30 +67,18 @@ void	execute_move(t_stack *a, t_stack *b, t_node *candidate)
 	t_node	*target;
 	int		pos_a;
 	int		pos_b;
-	int		back_a;
-	int		back_b;
 
 	if (!a || !b || !candidate || !a->top || !b->top)
 		return ;
 	target = find_target_position(b, candidate->rank);
-	if (!target)
-		return ;
 	pos_a = get_position(a, candidate);
 	pos_b = get_position(b, target);
-	if (pos_a < 0 || pos_b < 0)
+	if (!target || pos_a < 0 || pos_b < 0)
 		return ;
-	if (pos_a == 0)
-		back_a = 0;
-	else
-		back_a = a->size - pos_a;
-	if (pos_b == 0)
-		back_b = 0;
-	else
-		back_b = b->size - pos_b;
-	if (pos_a <= back_a && pos_b <= back_b)
+	if (pos_a <= a->size - pos_a && pos_b <= b->size - pos_b)
 		rotate_forward(a, b, pos_a, pos_b);
-	else if (pos_a > back_a && pos_b > back_b)
-		rotate_backward(a, b, back_a, back_b);
+	else if (pos_a > a->size - pos_a && pos_b > b->size - pos_b)
+		rotate_backward(a, b, a->size - pos_a, b->size - pos_b);
 	else
 		rotate_mixed(a, b, pos_a, pos_b);
 	if (a->top == candidate && b->top == target)

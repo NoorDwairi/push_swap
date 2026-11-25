@@ -70,11 +70,11 @@ static void	run_sort(t_stack *a, t_stack *b)
 
 int	main(int argc, char **argv)
 {
+	int			n;
 	t_stack		a;
 	t_stack		b;
-	t_config	cfg;
 	char		**arr;
-	int			n;
+	t_config	cfg;
 
 	if (argc < 2)
 		return (0);

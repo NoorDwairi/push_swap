@@ -1,13 +1,14 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bench_print.c                                      :+:      :+:    :+:   */
+/*   print_bench.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlababne <dlababne@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: ndwairi <ndwairi@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 11:05:19 by ndwairi           #+#    #+#             */
+/*   Updated: 2026/11/25 11:05:29 by ndwairi          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 static void	print_two_digits(int n)
@@ -71,8 +72,9 @@ void	print_bench(t_stack *a)
 	print_disorder(a);
 	ft_putstr_fd("[bench] strategy: ", 2);
 	ft_putstr_fd(strategy_name(a->config->selected), 2);
+	ft_putstr_fd(" / ", 2);
+	ft_putstr_fd(measure_complexity(a->config->used), 2);
 	ft_putchar_fd('\n', 2);
 	print_basic_counts(a->config);
 	print_rotation_counts(a->config);
 }
-

@@ -72,4 +72,3 @@ char	*measure_complexity(t_strategy used)
 		return ("O(n log n)");
 	return ("Unknown");
 }
-

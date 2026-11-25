@@ -53,8 +53,6 @@ void	rotate_min_to_top(t_stack *a)
 		current = current->next;
 	}
 	pos = get_position(a, min_node);
-	if (pos < 0)
-		return ;
 	if (pos <= a->size / 2)
 	{
 		while (pos-- > 0)
@@ -65,4 +63,23 @@ void	rotate_min_to_top(t_stack *a)
 		while (pos++ < a->size)
 			rra(a);
 	}
+}
+
+int	fill_stack_b(t_stack *a, t_stack *b)
+{
+	t_node	*target;
+
+	pb(a, b);
+	if (a->size > 3)
+		pb(a, b);
+	if (b->size >= 2 && b->top->rank < b->top->next->rank)
+		rb(b);
+	while (a->size > 3)
+	{
+		target = find_cheapest_move(a, b);
+		if (!target)
+			return (0);
+		execute_move(a, b, target);
+	}
+	return (1);
 }

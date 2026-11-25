@@ -38,30 +38,20 @@ int	find_max_pos(t_stack *b)
 void	push_to_top_b(t_stack *b)
 {
 	int	pos;
-	int	count;
 
 	if (!b || !b->top)
 		return ;
 	pos = find_max_pos(b);
-	if (pos < 0)
-		return ;
 	if (pos <= b->size / 2)
 	{
-		count = pos;
-		while (count > 0)
-		{
+		while (pos-- > 0)
 			rb(b);
-			count--;
-		}
 	}
 	else
 	{
-		count = b->size - pos;
-		while (count > 0)
-		{
+		pos = b->size - pos;
+		while (pos-- > 0)
 			rrb(b);
-			count--;
-		}
 	}
 }
 
